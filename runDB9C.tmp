@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://d12il5gtqswoe"]
+
+[ext_resource type="Script" path="res://Level.gd" id="1_tbifd"]
+[ext_resource type="PackedScene" uid="uid://ccun1u03nx6v" path="res://modules/largeModule1.tscn" id="2_omp05"]
+[ext_resource type="PackedScene" uid="uid://0v687bavusm0" path="res://modules/largeModule2.tscn" id="3_d3dp0"]
+[ext_resource type="Script" path="res://Player.gd" id="4_ldrjr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5wmj4"]
+sky_top_color = Color(0.341176, 0.372549, 0.886275, 1)
+sun_angle_max = 140.26
+
+[sub_resource type="Sky" id="Sky_42ayt"]
+sky_material = SubResource("ProceduralSkyMaterial_5wmj4")
+
+[sub_resource type="Environment" id="Environment_rbtmo"]
+background_mode = 2
+sky = SubResource("Sky_42ayt")
+fog_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0j5rw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c7s2a"]
+
+[node name="Run" type="Node3D"]
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("1_tbifd")
+modules = Array[PackedScene]([ExtResource("2_omp05"), ExtResource("3_d3dp0")])
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.928583, 0.371125, 0, -0.371125, 0.928583, 0, 29.6323, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rbtmo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 17)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("4_ldrjr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_0j5rw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_c7s2a")
