@@ -51,4 +51,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_c7s2a")
 
 [node name="DeathSensor" type="RayCast3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, -0.0119902, -0.999928, 0, 0.999928, -0.0119902, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, -0.0119902, -0.999928, 0, 0.999928, -0.0119902, 0, 0.355329, 0)
