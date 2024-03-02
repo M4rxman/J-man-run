@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=33 format=3 uid="uid://d12il5gtqswoe"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
 [ext_resource type="PackedScene" uid="uid://bvjg8k1x5igmv" path="res://modules/levels/LVL1/0.tscn" id="4_b7fpb"]
@@ -10,8 +10,22 @@
 [ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="6_y4k44"]
 [ext_resource type="PackedScene" uid="uid://dua2retrapliy" path="res://modules/levels/LVL1/3.tscn" id="7_mymp3"]
 [ext_resource type="PackedScene" uid="uid://ru68dvuxfilb" path="res://modules/levels/LVL1/4.tscn" id="8_8phep"]
+[ext_resource type="PackedScene" uid="uid://dshk5i5wfrost" path="res://modules/levels/LVL2/1.tscn" id="9_7oyal"]
 [ext_resource type="PackedScene" uid="uid://cnr5fdo147beq" path="res://modules/levels/LVL1/5.tscn" id="9_44gxu"]
+[ext_resource type="PackedScene" uid="uid://k3s43bc8kfuq" path="res://modules/levels/LVL2/0.tscn" id="9_73mbt"]
+[ext_resource type="PackedScene" uid="uid://co7emb7452mww" path="res://modules/levels/LVL2/2.tscn" id="10_62fuc"]
 [ext_resource type="PackedScene" uid="uid://dmxj5xwx2wmdq" path="res://modules/levels/LVL1/6.tscn" id="10_a24om"]
+[ext_resource type="PackedScene" uid="uid://c8i2nnonr6pt7" path="res://modules/levels/LVL2/3.tscn" id="11_g55xc"]
+[ext_resource type="PackedScene" uid="uid://b68v8ia6b6gj0" path="res://modules/levels/LVL2/4.tscn" id="12_6gf1l"]
+[ext_resource type="PackedScene" uid="uid://dxs3qo3gjp6td" path="res://modules/levels/LVL2/5.tscn" id="13_d2wsn"]
+[ext_resource type="PackedScene" uid="uid://bbdo2amcetbij" path="res://modules/levels/LVL2/6.tscn" id="14_xk546"]
+[ext_resource type="PackedScene" uid="uid://ce8y3pio4mvwv" path="res://modules/levels/LVL3/0.tscn" id="16_mqskt"]
+[ext_resource type="PackedScene" uid="uid://cv0ej0rfxk2hl" path="res://modules/levels/LVL3/1.tscn" id="17_m2865"]
+[ext_resource type="PackedScene" uid="uid://dp3octkuh02cv" path="res://modules/levels/LVL3/2.tscn" id="18_yvvkg"]
+[ext_resource type="PackedScene" uid="uid://e504xiuoplwo" path="res://modules/levels/LVL3/3.tscn" id="19_s00vd"]
+[ext_resource type="PackedScene" uid="uid://bk28a7eqgq3as" path="res://modules/levels/LVL3/4.tscn" id="20_ghrta"]
+[ext_resource type="PackedScene" uid="uid://c1ei2lft6c7go" path="res://modules/levels/LVL3/5.tscn" id="21_dhc12"]
+[ext_resource type="PackedScene" uid="uid://cvafp0cyjnakm" path="res://modules/levels/LVL3/6.tscn" id="22_geooc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22i2q"]
 panorama = ExtResource("4_gl37h")
@@ -45,6 +59,8 @@ size = Vector3(1, 0.205566, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427816, -0.0128927, 0.0649538)
 script = ExtResource("1_tbifd")
 lvl1 = Array[PackedScene]([ExtResource("4_b7fpb"), ExtResource("5_mkei4"), ExtResource("6_gb86g"), ExtResource("7_mymp3"), ExtResource("8_8phep"), ExtResource("9_44gxu"), ExtResource("10_a24om")])
+lvl2 = Array[PackedScene]([ExtResource("9_73mbt"), ExtResource("9_7oyal"), ExtResource("10_62fuc"), ExtResource("11_g55xc"), ExtResource("12_6gf1l"), ExtResource("13_d2wsn"), ExtResource("14_xk546")])
+lvl3 = Array[PackedScene]([ExtResource("16_mqskt"), ExtResource("17_m2865"), ExtResource("18_yvvkg"), ExtResource("19_s00vd"), ExtResource("20_ghrta"), ExtResource("21_dhc12"), ExtResource("22_geooc")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.998616, 1.90194e-05, -0.998616, 0.052596, 0, 29.6323, -0.491383)

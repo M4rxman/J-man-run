@@ -19,6 +19,10 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	# Down jump
+	if Input.is_action_just_pressed("down") and !is_on_floor():
+		velocity.y = -JUMP_VELOCITY*2
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -38,6 +42,21 @@ func _physics_process(delta):
 		print("alarm")
 		death()
 
+func deathByCar():
+	death()
+	
+func deathByRock():
+	death()
+
+func deathByLava():
+	death()
+	
+func deathBySwamp():
+	death()
+	
+func deathByWall():
+	death()
 
 func death():
+	#print("DEAD")
 	get_tree().reload_current_scene()

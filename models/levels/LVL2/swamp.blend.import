@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctdfw35n56iky"
-path="res://.godot/imported/4.blend-796281971fa3587f0146685e59f4398d.scn"
+uid="uid://3hc165r0n3na"
+path="res://.godot/imported/swamp.blend-fdb39a8bb8feb1a399be525005cdca82.scn"
 
 [deps]
 
-source_file="res://models/levels/LVL2/4.blend"
-dest_files=["res://.godot/imported/4.blend-796281971fa3587f0146685e59f4398d.scn"]
+source_file="res://models/levels/LVL2/swamp.blend"
+dest_files=["res://.godot/imported/swamp.blend-fdb39a8bb8feb1a399be525005cdca82.scn"]
 
 [params]
 
-nodes/root_type="StaticBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

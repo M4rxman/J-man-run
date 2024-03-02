@@ -2,11 +2,22 @@ extends Node3D
 #LEVELS
 #@export var modules: Array[PackedScene] = [] #temp
 @export var lvl1: Array[PackedScene] = []
+@export var lvl2: Array[PackedScene] = []
+@export var lvl3: Array[PackedScene] = []
+@export var lvl4: Array[PackedScene] = []
+@export var lvl5: Array[PackedScene] = []
+@export var lvl6: Array[PackedScene] = []
+@export var lvl7: Array[PackedScene] = []
+@export var lvl8: Array[PackedScene] = []
+
+@onready var player = $"../Player"
+
 
 var amount = 20
 var rng = RandomNumberGenerator.new()
 var offset = 10 #perfect 219.974
 
+var currentLevel
 var speedmultiplier = 0.0
 var initObs = 0
 
@@ -23,9 +34,15 @@ func _process(delta):
 
 func spawnModule(n):
 	if initObs > 10: #preload
+		if player.score >= 0 and player.score < 500:
+			currentLevel = lvl1
+		elif player.score >= 500 and player.score < 1000:
+			currentLevel = lvl2
+		elif player.score >=1000 and player.score < 1500:
+			currentLevel = lvl3
 		rng.randomize()
-		var num = rng.randi_range(0, lvl1.size()-1)
-		var instance = lvl1[num].instantiate()
+		var num = rng.randi_range(0, currentLevel.size()-1)
+		var instance = currentLevel[num].instantiate()
 		instance.position.z = n
 		add_child(instance)
 	else:
