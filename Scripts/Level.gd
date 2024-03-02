@@ -1,22 +1,23 @@
 extends Node3D
 
 @export var modules: Array[PackedScene] = []
-var amount = 3 
+var amount = 3
 var rng = RandomNumberGenerator.new()
-var offset = 230
+var offset = 220 #perfect 219.974
 
+var speedmultiplier = 0.0
 var initObs = 0
 
 func _ready():
+	$"../Timer".start()
 	for n in amount:
 		spawnModule(n*offset)
-		print("11")
+		print("spawned")
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://menu.tscn")
-
 
 func spawnModule(n):
 	if initObs > 10: #preload
@@ -30,4 +31,8 @@ func spawnModule(n):
 		instance.position.z = n
 		add_child(instance)
 		initObs += 1
-	print("spawned")
+	print("calling spawn")
+
+func _on_timer_timeout():
+	speedmultiplier += 0.025
+	print(speedmultiplier)

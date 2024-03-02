@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://0v687bavusm0" path="res://modules/largeModule2.tscn" id="3_d3dp0"]
 [ext_resource type="Texture2D" uid="uid://comner1sdos6g" path="res://Materials/cluj-napoca-romania-city-urban-preview.jpg" id="4_gl37h"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="4_ldrjr"]
-[ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="4_u48ia"]
+[ext_resource type="PackedScene" uid="uid://6ntvig1uidbb" path="res://hud.tscn" id="6_7ggdo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22i2q"]
 panorama = ExtResource("4_gl37h")
@@ -42,10 +42,6 @@ transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.9
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rbtmo")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.983134, 0.182888, 0, -0.182888, 0.983134, 0, 5.40807, 5.76077)
-script = ExtResource("4_u48ia")
-
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("4_ldrjr")
@@ -60,3 +56,14 @@ shape = SubResource("CapsuleShape3D_c7s2a")
 
 [node name="DeathSensor" type="RayCast3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, -0.0119902, -0.999928, 0, 0.999928, -0.0119902, 0, 0.355329, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.983134, 0.182888, 0, -0.182888, 0.983134, 0, 4.40807, 5.76077)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("6_7ggdo")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="Level" method="_on_timer_timeout"]
