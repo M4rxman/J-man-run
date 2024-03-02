@@ -1,11 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=19 format=3 uid="uid://d12il5gtqswoe"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
-[ext_resource type="PackedScene" uid="uid://ccun1u03nx6v" path="res://modules/largeModule1.tscn" id="2_omp05"]
-[ext_resource type="PackedScene" uid="uid://0v687bavusm0" path="res://modules/largeModule2.tscn" id="3_d3dp0"]
+[ext_resource type="PackedScene" uid="uid://bvjg8k1x5igmv" path="res://modules/levels/LVL1/0.tscn" id="4_b7fpb"]
 [ext_resource type="Texture2D" uid="uid://comner1sdos6g" path="res://Materials/cluj-napoca-romania-city-urban-preview.jpg" id="4_gl37h"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="4_ldrjr"]
+[ext_resource type="PackedScene" uid="uid://dvovrv1geewgw" path="res://modules/levels/LVL1/1.tscn" id="5_mkei4"]
 [ext_resource type="PackedScene" uid="uid://6ntvig1uidbb" path="res://hud.tscn" id="6_7ggdo"]
+[ext_resource type="PackedScene" uid="uid://b5k35i4opb8nn" path="res://modules/levels/LVL1/2.tscn" id="6_gb86g"]
+[ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="6_y4k44"]
+[ext_resource type="PackedScene" uid="uid://dua2retrapliy" path="res://modules/levels/LVL1/3.tscn" id="7_mymp3"]
+[ext_resource type="PackedScene" uid="uid://ru68dvuxfilb" path="res://modules/levels/LVL1/4.tscn" id="8_8phep"]
+[ext_resource type="PackedScene" uid="uid://cnr5fdo147beq" path="res://modules/levels/LVL1/5.tscn" id="9_44gxu"]
+[ext_resource type="PackedScene" uid="uid://dmxj5xwx2wmdq" path="res://modules/levels/LVL1/6.tscn" id="10_a24om"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22i2q"]
 panorama = ExtResource("4_gl37h")
@@ -28,13 +34,17 @@ volumetric_fog_density = 0.0995
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0j5rw"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c7s2a"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f05mu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdf3h"]
+size = Vector3(1, 0.205566, 1)
 
 [node name="Run" type="Node3D"]
 
 [node name="Level" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427816, -0.0128927, 0.0649538)
 script = ExtResource("1_tbifd")
-modules = Array[PackedScene]([ExtResource("2_omp05"), ExtResource("3_d3dp0")])
+lvl1 = Array[PackedScene]([ExtResource("4_b7fpb"), ExtResource("5_mkei4"), ExtResource("6_gb86g"), ExtResource("7_mymp3"), ExtResource("8_8phep"), ExtResource("9_44gxu"), ExtResource("10_a24om")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.998616, 1.90194e-05, -0.998616, 0.052596, 0, 29.6323, -0.491383)
@@ -43,7 +53,7 @@ transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.9
 environment = SubResource("Environment_rbtmo")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181713, 0)
 script = ExtResource("4_ldrjr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
@@ -52,13 +62,18 @@ mesh = SubResource("CapsuleMesh_0j5rw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_c7s2a")
+shape = SubResource("CapsuleShape3D_f05mu")
 
 [node name="DeathSensor" type="RayCast3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, -0.0119902, -0.999928, 0, 0.999928, -0.0119902, 0, 0.355329, 0)
+transform = Transform3D(1, 0, 0, 0, -0.0119902, -0.999928, 0, 0.999928, -0.0119902, 0, 0.461814, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.983134, 0.182888, 0, -0.182888, 0.983134, 0, 4.40807, 5.76077)
+script = ExtResource("6_y4k44")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.397217, 0)
+shape = SubResource("BoxShape3D_pdf3h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -66,4 +81,9 @@ transform = Transform3D(1, 0, 0, 0, 0.983134, 0.182888, 0, -0.182888, 0.983134, 
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="ClearWay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="Level" method="_on_timer_timeout"]
+[connection signal="timeout" from="ClearWay" to="Level" method="_on_timer_2_timeout"]

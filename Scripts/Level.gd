@@ -1,9 +1,11 @@
 extends Node3D
+#LEVELS
+#@export var modules: Array[PackedScene] = [] #temp
+@export var lvl1: Array[PackedScene] = []
 
-@export var modules: Array[PackedScene] = []
-var amount = 3
+var amount = 20
 var rng = RandomNumberGenerator.new()
-var offset = 220 #perfect 219.974
+var offset = 10 #perfect 219.974
 
 var speedmultiplier = 0.0
 var initObs = 0
@@ -12,7 +14,7 @@ func _ready():
 	$"../Timer".start()
 	for n in amount:
 		spawnModule(n*offset)
-		print("spawned")
+		#print("spawned")
 
 
 func _process(delta):
@@ -22,17 +24,23 @@ func _process(delta):
 func spawnModule(n):
 	if initObs > 10: #preload
 		rng.randomize()
-		var num = rng.randi_range(0, modules.size()-1)
-		var instance = modules[num].instantiate()
+		var num = rng.randi_range(0, lvl1.size()-1)
+		var instance = lvl1[num].instantiate()
 		instance.position.z = n
 		add_child(instance)
 	else:
-		var instance = modules[0].instantiate() #start
+		var instance = lvl1[0].instantiate() #start
 		instance.position.z = n
 		add_child(instance)
-		initObs += 1
-	print("calling spawn")
+		
+		print("CLEAR WAY")
+	#print("calling spawn")
 
 func _on_timer_timeout():
+	initObs = 11
 	speedmultiplier += 0.025
 	print(speedmultiplier)
+
+
+func _on_timer_2_timeout():
+	initObs = 11

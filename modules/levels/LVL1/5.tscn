@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnr5fdo147beq"]
+
+[ext_resource type="PackedScene" uid="uid://d0ds2tfvo5k1s" path="res://models/levels/LVL1/5.blend" id="1_45fl3"]
+[ext_resource type="Script" path="res://modules/Module.gd" id="2_o1snx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4l1tt"]
+size = Vector3(13.6079, 0.644104, 9.97961)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bf8a"]
+size = Vector3(1, 3.93787, 10.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8lmb"]
+size = Vector3(4.1438, 2.89351, 5.9549)
+
+[node name="5" instance=ExtResource("1_45fl3")]
+script = ExtResource("2_o1snx")
+
+[node name="road1" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00219727, -0.177948, -0.0117798)
+shape = SubResource("BoxShape3D_4l1tt")
+
+[node name="road2" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6346, 1.46893, 0.00504303)
+shape = SubResource("BoxShape3D_1bf8a")
+
+[node name="road" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62742, 1.46893, -0.0039978)
+shape = SubResource("BoxShape3D_1bf8a")
+
+[node name="CarCol" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.57349, 1.59042, 0.167063)
+shape = SubResource("BoxShape3D_e8lmb")

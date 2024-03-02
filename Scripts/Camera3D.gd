@@ -12,11 +12,12 @@ func _ready():
 
 func apply_shake():
 	shake_strength = randomStrengh
+	print (randomStrengh)
 
 # Called every frame. 'delta' is the elapsed time since thesprevious frame.
 func _process(delta):
 	if Input.is_action_just_pressed("Shake"):
 		apply_shake()
 	
-	look_at($"../Player".position + Vector3(0, 1, 0), Vector3(0,0.6,0))
+	#look_at($"../Player".position + Vector3(0, 1, 0), Vector3(0,0.6,0))
 	
