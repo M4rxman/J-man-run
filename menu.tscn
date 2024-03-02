@@ -1,13 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://65hefounn0o6"]
+[gd_scene load_steps=19 format=3 uid="uid://65hefounn0o6"]
 
+[ext_resource type="PackedScene" uid="uid://d1a1cfwkjyx5" path="res://models/vulkan/test.blend" id="1_6hktp"]
 [ext_resource type="FontFile" uid="uid://cwbcjewq86iii" path="res://Assets/Fonts/A Goblin Appears!.otf" id="1_gnfbd"]
 [ext_resource type="Texture2D" uid="uid://dqy1os6qeivtu" path="res://Assets/Img/menu-background.png" id="1_hca8w"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_po8xk"]
 [ext_resource type="Texture2D" uid="uid://b3k52cq101vrg" path="res://Assets/Img/jesus.png" id="2_am3ve"]
+[ext_resource type="Texture2D" uid="uid://qa47k2dmmcqk" path="res://models/vulkan/pngwing.com.png" id="2_o2pv1"]
+[ext_resource type="Environment" uid="uid://dv48bc7tfi0sg" path="res://Enviorment/run.tres" id="3_bkg3e"]
 [ext_resource type="AudioStream" uid="uid://ewg3nxewcij3" path="res://Music/SFX/shouting-yeah-7043.wav" id="4_jnyq4"]
 [ext_resource type="AudioStream" uid="uid://b3i8yqbgrp2r6" path="res://Music/hate this shit.mp3" id="5_6g5wi"]
 [ext_resource type="AudioStream" uid="uid://oi3nrt0j0kqj" path="res://Music/SFX/button-124476.wav" id="5_l3ukb"]
 [ext_resource type="AudioStream" uid="uid://dbghft8ycyvyt" path="res://Music/SFX/untitled.wav" id="6_2oked"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kyxl"]
+transparency = 4
+blend_mode = 3
+cull_mode = 1
+albedo_color = Color(0.713726, 0.713726, 0.713726, 1)
+albedo_texture = ExtResource("2_o2pv1")
+albedo_texture_force_srgb = true
+albedo_texture_msdf = true
+grow = true
+grow_amount = 1.475
+proximity_fade_enabled = true
+proximity_fade_distance = 43.45
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_si4s3"]
+material = SubResource("StandardMaterial3D_1kyxl")
+orientation = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ccba"]
 
@@ -21,6 +41,48 @@
 
 [node name="Menu" type="CanvasLayer"]
 
+[node name="BackGround" type="Node3D" parent="."]
+
+[node name="Level" type="Node3D" parent="BackGround"]
+
+[node name="test" parent="BackGround/Level" instance=ExtResource("1_6hktp")]
+transform = Transform3D(1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -21.9011, -12.0539, -54.8287)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="BackGround/Level/test"]
+transform = Transform3D(-0.957908, 0.0339643, -0.28506, 0.213163, 0.749259, -0.627034, 0.192287, -0.661405, -0.724961, -2.16312, 12.5203, -0.831421)
+amount = 16
+lifetime = 1.79
+draw_order = 1
+mesh = SubResource("PlaneMesh_si4s3")
+emission_shape = 1
+emission_sphere_radius = 1.75
+direction = Vector3(0, 5, 0)
+gravity = Vector3(0, 3.335, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="BackGround/Level"]
+transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.998616, 1.90194e-05, -0.998616, 0.052596, -0.0627947, 29.6516, -0.349475)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BackGround/Level"]
+environment = ExtResource("3_bkg3e")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BackGround/Level"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="BackGround/Level/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="BackGround/Level/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.975053, -0.221974, 0, 0.221974, 0.975053, 0, 1.55898, 14.6254)
+fov = 50.0
+near = 0.02
+far = 777.0
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -30,6 +92,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BgColor" type="Sprite2D" parent="Control"]
+visible = false
 position = Vector2(575.259, 324.958)
 scale = Vector2(0.902893, 0.902893)
 texture = ExtResource("1_hca8w")
@@ -119,7 +182,6 @@ max_polyphony = 4
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
 stream = ExtResource("5_6g5wi")
 volume_db = -9.0
-autoplay = true
 max_polyphony = 4
 
 [node name="Jesus" type="Sprite2D" parent="Control"]

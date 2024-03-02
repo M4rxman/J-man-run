@@ -24,7 +24,7 @@ func _on_start_btn_pressed():
 func _on_quit_btn_pressed():
 	$"Forgive-Me-father".play()
 	$AudioStreamPlayer.stop()
-	await get_tree().create_timer(19.89).timeout
+	await get_tree().create_timer(17.5).timeout
 	get_tree().quit()
 
 
