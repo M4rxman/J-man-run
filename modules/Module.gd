@@ -9,3 +9,4 @@ func _process(delta):
 	if position.z > 250:
 		level.spawnModule(position.z-(level.amount*level.offset))
 		queue_free()
+

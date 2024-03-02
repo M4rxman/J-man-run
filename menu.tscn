@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf1eybpsaikx"]
+[gd_scene load_steps=14 format=3 uid="uid://65hefounn0o6"]
 
 [ext_resource type="FontFile" uid="uid://cwbcjewq86iii" path="res://Assets/Fonts/A Goblin Appears!.otf" id="1_gnfbd"]
 [ext_resource type="Texture2D" uid="uid://dqy1os6qeivtu" path="res://Assets/Img/menu-background.png" id="1_hca8w"]
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_po8xk"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_po8xk"]
 [ext_resource type="Texture2D" uid="uid://b3k52cq101vrg" path="res://Assets/Img/jesus.png" id="2_am3ve"]
+[ext_resource type="AudioStream" uid="uid://ewg3nxewcij3" path="res://Music/SFX/shouting-yeah-7043.wav" id="4_jnyq4"]
+[ext_resource type="AudioStream" uid="uid://b3i8yqbgrp2r6" path="res://Music/hate this shit.mp3" id="5_6g5wi"]
+[ext_resource type="AudioStream" uid="uid://oi3nrt0j0kqj" path="res://Music/SFX/button-124476.wav" id="5_l3ukb"]
+[ext_resource type="AudioStream" uid="uid://dbghft8ycyvyt" path="res://Music/SFX/untitled.wav" id="6_2oked"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ccba"]
 
@@ -51,7 +55,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_gnfbd")
 theme_override_font_sizes/font_size = 41
-text = "J man run"
+text = "J-man run"
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/MainMenu"]
 custom_minimum_size = Vector2(0, 80)
@@ -99,13 +103,34 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Quit"
 
+[node name="HellYEAH" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
+stream = ExtResource("4_jnyq4")
+
+[node name="buttonClic" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
+stream = ExtResource("5_l3ukb")
+volume_db = -1.889
+max_polyphony = 4
+
+[node name="Forgive-Me-father" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
+stream = ExtResource("6_2oked")
+volume_db = -1.889
+max_polyphony = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
+stream = ExtResource("5_6g5wi")
+volume_db = -9.0
+autoplay = true
+max_polyphony = 4
+
 [node name="Jesus" type="Sprite2D" parent="Control"]
 position = Vector2(754.25, 342)
 scale = Vector2(0.990625, 0.990625)
 texture = ExtResource("2_am3ve")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
+[connection signal="mouse_entered" from="Control/MarginContainer/MainMenu/StartBtn" to="Control/MarginContainer/MainMenu" method="_on_start_btn_mouse_entered"]
 [connection signal="pressed" from="Control/MarginContainer/MainMenu/StartBtn" to="Control/MarginContainer/MainMenu" method="_on_start_btn_pressed"]
+[connection signal="button_down" from="Control/MarginContainer/MainMenu/Credits" to="Control/MarginContainer/MainMenu" method="_on_credits_button_down"]
+[connection signal="mouse_entered" from="Control/MarginContainer/MainMenu/Credits" to="Control/MarginContainer/MainMenu" method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Control/MarginContainer/MainMenu/Credits" to="Control/MarginContainer/MainMenu" method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Control/MarginContainer/MainMenu/QuitBtn" to="Control/MarginContainer/MainMenu" method="_on_quit_btn_mouse_entered"]
 [connection signal="pressed" from="Control/MarginContainer/MainMenu/QuitBtn" to="Control/MarginContainer/MainMenu" method="_on_quit_btn_pressed"]
