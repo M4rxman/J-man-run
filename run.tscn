@@ -1,21 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=12 format=3 uid="uid://d12il5gtqswoe"]
 
-[ext_resource type="Script" path="res://Level.gd" id="1_tbifd"]
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
 [ext_resource type="PackedScene" uid="uid://ccun1u03nx6v" path="res://modules/largeModule1.tscn" id="2_omp05"]
 [ext_resource type="PackedScene" uid="uid://0v687bavusm0" path="res://modules/largeModule2.tscn" id="3_d3dp0"]
-[ext_resource type="Script" path="res://Player.gd" id="4_ldrjr"]
-[ext_resource type="Script" path="res://Camera3D.gd" id="4_u48ia"]
+[ext_resource type="Texture2D" uid="uid://comner1sdos6g" path="res://Materials/cluj-napoca-romania-city-urban-preview.jpg" id="4_gl37h"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="4_ldrjr"]
+[ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="4_u48ia"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5wmj4"]
-sky_top_color = Color(0.341176, 0.372549, 0.886275, 1)
-sun_angle_max = 140.26
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22i2q"]
+panorama = ExtResource("4_gl37h")
+filter = false
 
-[sub_resource type="Sky" id="Sky_42ayt"]
-sky_material = SubResource("ProceduralSkyMaterial_5wmj4")
+[sub_resource type="Sky" id="Sky_64tbl"]
+sky_material = SubResource("PanoramaSkyMaterial_22i2q")
 
 [sub_resource type="Environment" id="Environment_rbtmo"]
 background_mode = 2
-sky = SubResource("Sky_42ayt")
+sky = SubResource("Sky_64tbl")
+sky_rotation = Vector3(-0.0820305, -3.14159, 0)
+ambient_light_color = Color(0.960784, 0.698039, 0.313726, 1)
+ambient_light_sky_contribution = 0.9
+tonemap_mode = 3
+fog_light_color = Color(0.509804, 0.211765, 0.156863, 1)
+fog_density = 0.05
+fog_aerial_perspective = 0.03
 volumetric_fog_density = 0.0995
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0j5rw"]
@@ -29,13 +37,13 @@ script = ExtResource("1_tbifd")
 modules = Array[PackedScene]([ExtResource("2_omp05"), ExtResource("3_d3dp0")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.928583, 0.371125, 0, -0.371125, 0.928583, 0, 29.6323, 0)
+transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.998616, 1.90194e-05, -0.998616, 0.052596, 0, 29.6323, -0.491383)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rbtmo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.998079, -0.0619544, 0, 0.0619544, 0.998079, 0, 3.46739, 5.76077)
+transform = Transform3D(1, 0, 0, 0, 0.983134, 0.182888, 0, -0.182888, 0.983134, 0, 5.40807, 5.76077)
 script = ExtResource("4_u48ia")
 
 [node name="Player" type="CharacterBody3D" parent="."]

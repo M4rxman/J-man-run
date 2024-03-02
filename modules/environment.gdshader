@@ -9,8 +9,8 @@ uniform vec4 color;
 varying vec4 world_vertex; // Declare a variável aqui para que ela seja acessível em ambas as funções
 
 void vertex() {
-	float CURVATURE_DISTANCE = 40.0;
-	float CURVATURE = 2.4;
+	float CURVATURE_DISTANCE = 45.0;
+	float CURVATURE = 2.6;
 	float SPRITE_POS_X = 0.0;
 	float SPRITE_POS_Y = 0.06;
     if (CURVATURE_ACTIVE == true) {
