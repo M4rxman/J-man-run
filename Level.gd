@@ -17,6 +17,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://menu.tscn")
 
+
 func spawnModule(n):
 	if initObs > 10: #preload
 		rng.randomize()
