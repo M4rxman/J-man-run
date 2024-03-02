@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/3.blend-50f675eab9f787841016d06d1dd6972e.scn"
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

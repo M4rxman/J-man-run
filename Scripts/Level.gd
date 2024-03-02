@@ -39,8 +39,10 @@ func spawnModule(n):
 			currentLevel = lvl1
 		elif player.score >= 500 and player.score < 1000:
 			currentLevel = lvl2
-		elif player.score >= 1000:
+		elif player.score >= 1000 and player.score < 1500:
 			currentLevel = lvl3
+		elif player.score >= 1500:
+			currentLevel = lvl4
 		rng.randomize()
 		var num = rng.randi_range(0, currentLevel.size()-1)
 		var instance = currentLevel[num].instantiate()

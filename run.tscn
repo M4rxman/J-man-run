@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=39 format=3 uid="uid://d12il5gtqswoe"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
 [ext_resource type="PackedScene" uid="uid://bvjg8k1x5igmv" path="res://modules/levels/LVL1/0.tscn" id="4_b7fpb"]
@@ -26,6 +26,12 @@
 [ext_resource type="PackedScene" uid="uid://bk28a7eqgq3as" path="res://modules/levels/LVL3/4.tscn" id="20_ghrta"]
 [ext_resource type="PackedScene" uid="uid://c1ei2lft6c7go" path="res://modules/levels/LVL3/5.tscn" id="21_dhc12"]
 [ext_resource type="PackedScene" uid="uid://cvafp0cyjnakm" path="res://modules/levels/LVL3/6.tscn" id="22_geooc"]
+[ext_resource type="PackedScene" uid="uid://bc2vkuibssojm" path="res://modules/levels/LVL4/0.tscn" id="23_ueg8m"]
+[ext_resource type="PackedScene" uid="uid://b06ikhg46x7yf" path="res://modules/levels/LVL4/1.tscn" id="24_5w40k"]
+[ext_resource type="PackedScene" uid="uid://6ty08qeth63e" path="res://modules/levels/LVL4/2.tscn" id="25_ptxvs"]
+[ext_resource type="PackedScene" uid="uid://dvpc7mu4ntyym" path="res://modules/levels/LVL4/3.tscn" id="26_rglas"]
+[ext_resource type="PackedScene" uid="uid://d1rsbsmb3xyp3" path="res://modules/levels/LVL4/4.tscn" id="27_kbuwa"]
+[ext_resource type="PackedScene" uid="uid://ce1q5svgt8v8w" path="res://modules/levels/LVL4/5.tscn" id="28_ssguy"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22i2q"]
 panorama = ExtResource("4_gl37h")
@@ -61,6 +67,7 @@ script = ExtResource("1_tbifd")
 lvl1 = Array[PackedScene]([ExtResource("4_b7fpb"), ExtResource("5_mkei4"), ExtResource("6_gb86g"), ExtResource("7_mymp3"), ExtResource("8_8phep"), ExtResource("9_44gxu"), ExtResource("10_a24om")])
 lvl2 = Array[PackedScene]([ExtResource("9_73mbt"), ExtResource("9_7oyal"), ExtResource("10_62fuc"), ExtResource("11_g55xc"), ExtResource("12_6gf1l"), ExtResource("13_d2wsn"), ExtResource("14_xk546")])
 lvl3 = Array[PackedScene]([ExtResource("16_mqskt"), ExtResource("17_m2865"), ExtResource("18_yvvkg"), ExtResource("19_s00vd"), ExtResource("20_ghrta"), ExtResource("21_dhc12"), ExtResource("22_geooc")])
+lvl4 = Array[PackedScene]([ExtResource("23_ueg8m"), ExtResource("24_5w40k"), ExtResource("25_ptxvs"), ExtResource("26_rglas"), ExtResource("27_kbuwa"), ExtResource("28_ssguy")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.998616, 1.90194e-05, -0.998616, 0.052596, 0, 29.6323, -0.491383)

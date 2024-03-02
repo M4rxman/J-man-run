@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://w18m23cx1qgq"
-path="res://.godot/imported/2.blend-15ec5e78e6648274fa20b737fa70ac76.scn"
+uid="uid://ckfe1xov3r3q4"
+path="res://.godot/imported/wood.blend-0168913862973aa8fb7fab35a4047528.scn"
 
 [deps]
 
-source_file="res://models/levels/LVL4/2.blend"
-dest_files=["res://.godot/imported/2.blend-15ec5e78e6648274fa20b737fa70ac76.scn"]
+source_file="res://models/levels/LVL4/wood.blend"
+dest_files=["res://.godot/imported/wood.blend-0168913862973aa8fb7fab35a4047528.scn"]
 
 [params]
 
-nodes/root_type="StaticBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

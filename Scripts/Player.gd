@@ -56,6 +56,9 @@ func deathBySwamp():
 	
 func deathByWall():
 	death()
+	
+func deathByBarrier():
+	death()
 
 func death():
 	#print("DEAD")
