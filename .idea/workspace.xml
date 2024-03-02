@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="adb84364-7a4a-47e2-b73b-05fdba277cda" name="Changes" comment="TEST" />
+    <list default="true" id="adb84364-7a4a-47e2-b73b-05fdba277cda" name="Changes" comment="TEST">
+      <change afterPath="$PROJECT_DIR$/HellYEAH.gd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/SFX/button-124476.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/SFX/button-124476.wav.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/SFX/shouting-yeah-7043.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/SFX/shouting-yeah-7043.wav.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/SFX/untitled.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/SFX/untitled.wav.import" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/hate this shit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Music/hate this shit.mp3.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Camera3D.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Camera3D.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Level.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Level.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainMenu.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/MainMenu.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Player.gd" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +65,7 @@
       <updated>1709318288209</updated>
       <workItem from="1709318290460" duration="88000" />
       <workItem from="1709318383525" duration="1000" />
+      <workItem from="1709346090715" duration="41000" />
     </task>
     <task id="LOCAL-00001" summary="TEST">
       <option name="closed" value="true" />
