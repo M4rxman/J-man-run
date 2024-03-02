@@ -5,7 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://0v687bavusm0" path="res://modules/largeModule2.tscn" id="3_d3dp0"]
 [ext_resource type="Texture2D" uid="uid://comner1sdos6g" path="res://Materials/cluj-napoca-romania-city-urban-preview.jpg" id="4_gl37h"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="4_ldrjr"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="4_u48ia"]
+=======
+[ext_resource type="PackedScene" uid="uid://dvovrv1geewgw" path="res://modules/levels/LVL1/1.tscn" id="5_mkei4"]
+[ext_resource type="PackedScene" path="res://hud.tscn" id="6_7ggdo"]
+[ext_resource type="PackedScene" uid="uid://b5k35i4opb8nn" path="res://modules/levels/LVL1/2.tscn" id="6_gb86g"]
+[ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="6_y4k44"]
+[ext_resource type="PackedScene" uid="uid://dua2retrapliy" path="res://modules/levels/LVL1/3.tscn" id="7_mymp3"]
+[ext_resource type="PackedScene" uid="uid://ru68dvuxfilb" path="res://modules/levels/LVL1/4.tscn" id="8_8phep"]
+[ext_resource type="PackedScene" uid="uid://cnr5fdo147beq" path="res://modules/levels/LVL1/5.tscn" id="9_44gxu"]
+[ext_resource type="PackedScene" uid="uid://dmxj5xwx2wmdq" path="res://modules/levels/LVL1/6.tscn" id="10_a24om"]
+>>>>>>> Stashed changes
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22i2q"]
 panorama = ExtResource("4_gl37h")

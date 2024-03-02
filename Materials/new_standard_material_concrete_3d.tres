@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d24rilt37r08e"]
+
+[ext_resource type="Texture2D" uid="uid://dc35dx6aecvk2" path="res://models/levels/all road staff/textures_for_lvls/rd2.png" id="1_dqvvo"]
+
+[resource]
+resource_name = "Material.004"
+blend_mode = 1
+albedo_texture = ExtResource("1_dqvvo")
+roughness = 0.5
+point_size = 36.5

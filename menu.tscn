@@ -182,6 +182,7 @@ max_polyphony = 4
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
 stream = ExtResource("5_6g5wi")
 volume_db = -9.0
+autoplay = true
 max_polyphony = 4
 
 [node name="Jesus" type="Sprite2D" parent="Control"]

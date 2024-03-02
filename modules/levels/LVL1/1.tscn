@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvovrv1geewgw"]
+
+[ext_resource type="PackedScene" uid="uid://b1nitileur8vx" path="res://models/levels/LVL1/1.blend" id="1_cjke2"]
+[ext_resource type="Script" path="res://modules/Module.gd" id="2_kpcu4"]
+[ext_resource type="Shader" path="res://environment.gdshader" id="3_dsmms"]
+[ext_resource type="Texture2D" uid="uid://bhg76lk2cqi80" path="res://Materials/textures/rd1.png" id="4_jut4d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf736"]
+render_priority = 0
+shader = ExtResource("3_dsmms")
+shader_parameter/CURVATURE_ACTIVE = true
+shader_parameter/color = Vector4(1, 1, 1, 0)
+shader_parameter/BASE_TEX = ExtResource("4_jut4d")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5gts"]
+size = Vector3(13.6079, 0.644104, 9.97961)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ndagf"]
+size = Vector3(1, 3.93787, 10.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3ujh"]
+size = Vector3(4.1438, 2.99558, 5.9549)
+
+[node name="1" instance=ExtResource("1_cjke2")]
+script = ExtResource("2_kpcu4")
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_yf736")
+
+[node name="road1" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00219727, -0.177948, -0.0117798)
+shape = SubResource("BoxShape3D_j5gts")
+
+[node name="road2" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6346, 1.46893, 0.00504303)
+shape = SubResource("BoxShape3D_ndagf")
+
+[node name="road" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62742, 1.46893, -0.0039978)
+shape = SubResource("BoxShape3D_ndagf")
+
+[node name="CarCol" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51771, 1.66063, 0.209912)
+shape = SubResource("BoxShape3D_t3ujh")
