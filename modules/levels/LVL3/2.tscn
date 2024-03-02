@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://dp3octkuh02cv"]
+[gd_scene load_steps=26 format=3 uid="uid://dp3octkuh02cv"]
 
+[ext_resource type="Script" path="res://modules/Module.gd" id="1_b8fe3"]
 [ext_resource type="Texture2D" uid="uid://clyijt0ut2hod" path="res://models/levels/all road staff/textures_for_lvls/rd1.png" id="1_rqg0q"]
 [ext_resource type="Script" path="res://modules/Area3D/CarCheck.gd" id="2_3r8n3"]
 [ext_resource type="Texture2D" uid="uid://dc35dx6aecvk2" path="res://models/levels/all road staff/textures_for_lvls/rd2.png" id="2_fc6a8"]
@@ -223,6 +224,7 @@ size = Vector3(13.6079, 0.644104, 9.97961)
 size = Vector3(1, 3.93787, 10.02)
 
 [node name="2" type="StaticBody3D"]
+script = ExtResource("1_b8fe3")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
