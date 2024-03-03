@@ -26,7 +26,7 @@ var landFly = false
 
 var isAlive = true
 
-var score = 0 
+var score = 4000
 var rotation_angle = 180
 
 func _ready():
@@ -129,6 +129,8 @@ func deathBySwamp():
 	death()
 	
 func deathByMetalic():
+	if isAlive:
+		$JESUS/metalicDown.play()
 	death()
 	
 func deathByWall():

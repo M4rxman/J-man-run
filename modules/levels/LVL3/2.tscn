@@ -1,14 +1,14 @@
 [gd_scene load_steps=26 format=3 uid="uid://dp3octkuh02cv"]
 
 [ext_resource type="Script" path="res://modules/Module.gd" id="1_b8fe3"]
-[ext_resource type="Texture2D" uid="uid://clyijt0ut2hod" path="res://models/levels/all road staff/textures_for_lvls/rd1.png" id="1_rqg0q"]
+[ext_resource type="Texture2D" uid="uid://clyijt0ut2hod" path="res://models/levels/LVL4/all road staff/textures_for_lvls/rd1.png" id="1_rqg0q"]
 [ext_resource type="Script" path="res://modules/Area3D/CarCheck.gd" id="2_3r8n3"]
-[ext_resource type="Texture2D" uid="uid://dc35dx6aecvk2" path="res://models/levels/all road staff/textures_for_lvls/rd2.png" id="2_fc6a8"]
-[ext_resource type="Texture2D" uid="uid://cdllxanv80dci" path="res://models/levels/all road staff/textures_for_lvls/rft2.png" id="3_b5k08"]
+[ext_resource type="Texture2D" uid="uid://dc35dx6aecvk2" path="res://models/levels/LVL4/all road staff/textures_for_lvls/rd2.png" id="2_fc6a8"]
+[ext_resource type="Texture2D" uid="uid://cdllxanv80dci" path="res://models/levels/LVL4/all road staff/textures_for_lvls/rft2.png" id="3_b5k08"]
 [ext_resource type="Script" path="res://modules/Area3D/LavaCheck.gd" id="3_tjkqq"]
-[ext_resource type="Texture2D" uid="uid://dext1sf6iu0f7" path="res://models/levels/all road staff/textures_for_lvls/rft1.png" id="4_2r7l1"]
-[ext_resource type="Texture2D" uid="uid://c0cwcwnn3dccc" path="res://models/levels/all road staff/textures_for_lvls/lava.jpg" id="5_tbwt7"]
-[ext_resource type="Texture2D" uid="uid://xjlbcufdluct" path="res://models/levels/all road staff/textures_for_lvls/rk.png" id="6_3fpgn"]
+[ext_resource type="Texture2D" uid="uid://dext1sf6iu0f7" path="res://models/levels/LVL4/all road staff/textures_for_lvls/rft1.png" id="4_2r7l1"]
+[ext_resource type="Texture2D" uid="uid://c0cwcwnn3dccc" path="res://models/levels/LVL4/all road staff/textures_for_lvls/lava.jpg" id="5_tbwt7"]
+[ext_resource type="Texture2D" uid="uid://xjlbcufdluct" path="res://models/levels/LVL4/all road staff/textures_for_lvls/rk.png" id="6_3fpgn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk1y4"]
 resource_name = "Material.001"
