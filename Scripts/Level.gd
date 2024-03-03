@@ -5,17 +5,21 @@ extends Node3D
 @export var lvl2: Array[PackedScene] = []
 @export var lvl3: Array[PackedScene] = []
 @export var lvl4: Array[PackedScene] = []
-@export var lvl5: Array[PackedScene] = []
+#@export var lvl5: Array[PackedScene] = []
 #@export var lvl6: Array[PackedScene] = []
 #@export var lvl7: Array[PackedScene] = []
 #@export var lvl8: Array[PackedScene] = []
+@export var lvlBackground: Array[PackedScene] = []
 
 @onready var player = $"../Player"
 
 
-var amount = 20
+var amount = 25
 var rng = RandomNumberGenerator.new()
 var offset = 10 #perfect 219.974
+
+var backgroundAmount = 5
+var backgroundOffset = 141.5 #perfect 141.9
 
 var currentLevel
 var speedmultiplier = 0.0
@@ -26,6 +30,9 @@ func _ready():
 	for n in amount:
 		spawnModule(n*offset)
 		#print("spawned")
+		
+	for u in backgroundAmount:
+		spawnBackground(u*backgroundOffset)
 
 
 func _process(delta):
@@ -34,7 +41,7 @@ func _process(delta):
 	
 
 func spawnModule(n):
-	if initObs > 10: #preload
+	if initObs > 6: #preload
 		if player.score >= 0 and player.score < 500:
 			currentLevel = lvl1
 		elif player.score >= 500 and player.score < 1000:
@@ -48,6 +55,7 @@ func spawnModule(n):
 		var instance = currentLevel[num].instantiate()
 		instance.position.z = n
 		add_child(instance)
+		initObs += 1
 	else:
 		var instance = lvl1[0].instantiate() #start
 		instance.position.z = n
@@ -55,6 +63,11 @@ func spawnModule(n):
 		
 		print("CLEAR WAY")
 	#print("calling spawn")
+
+func spawnBackground(i):
+	var instance = lvlBackground[0].instantiate()
+	instance.position.z = i
+	add_child(instance)
 
 func _on_timer_timeout():
 	initObs = 11
