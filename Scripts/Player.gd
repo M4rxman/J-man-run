@@ -14,6 +14,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var death_sensor = $DeathSensor
 @onready var level = $"../Level"
 
+
+var isAlive = true
+
 var score = 0
 var rotation_angle = 180
 func _physics_process(delta):
@@ -50,28 +53,28 @@ func _physics_process(delta):
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 		##velocity.z = move_toward(velocity.z, 0, SPEED)
 	var direction1 = Input.get_axis("ui_left", "ui_right")
+	if isAlive:
+		if direction1:
+			velocity.x = direction1 * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if direction1:
-		velocity.x = direction1 * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if direction1 == -1:
-		$JESUS.rotation.y = deg_to_rad(rotation_angle+10)
-	elif direction1 == 1:
-		$JESUS.rotation.y = deg_to_rad(rotation_angle-10)
-	else:
-		$JESUS.rotation.y = deg_to_rad(rotation_angle)
+		if direction1 == -1:
+			$JESUS.rotation.y = deg_to_rad(rotation_angle+10)
+		elif direction1 == 1:
+			$JESUS.rotation.y = deg_to_rad(rotation_angle-10)
+		else:
+			$JESUS.rotation.y = deg_to_rad(rotation_angle)
 		
 	score += 0.5
 	$"../CanvasLayer/HUD/Score".text = str(int(score))
 	move_and_slide()
-	if is_on_floor():
+	if is_on_floor() and isAlive:
 		anim.play("ArmatureAction")
 		animBoard.play("Armature_001Action")
-	if death_sensor.is_colliding():
-		print("alarm")
-		death()
+	#if death_sensor.is_colliding():
+		#print("alarm")
+		#death()
 
 func deathByCar():
 	death()
@@ -95,6 +98,9 @@ func death():
 	#print("DEAD")
 	#await get_tree().create_timer(10.0).timeout
 	#get_tree().reload_current_scene()
+	isAlive = false
 	level.isPause = true
+	anim.play("JESUS_DOWN1")
+	animBoard.play("BOARD_DOWN1")
 	await get_tree().create_timer(3.0).timeout
 	get_tree().reload_current_scene()
