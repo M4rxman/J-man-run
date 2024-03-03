@@ -6,15 +6,17 @@ func _ready():
 	_draw_the_menu()
 	
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	await get_tree().create_timer(47.8).timeout
+	pass
 	
-	if(_on_video_stream_player_finished()):
-		_draw_the_menu()
-		
+
+
+func _hide_the_menu():
+	if visible: 
+		visible = false
+
+		$MainMenu.visible = false 
 		
 
 func _draw_the_menu():
@@ -22,10 +24,14 @@ func _draw_the_menu():
 		pass
 	else:
 		visible = true
-		$MainMenu.visible = not $MainMenu.visible
-		$Jesus.visible = not $Jesus.visible
-		$MainMenu/MarginContainer.visible = true
 		$MainMenu.visible = true 
 
 func _on_video_stream_player_finished():
-	return true
+	get_tree().change_scene_to_file("res://run.tscn")
+
+
+func _on_video_stream_player_draw():
+	_hide_the_menu()
+
+func _on_start_btn_pressed():
+	print("Gay")
