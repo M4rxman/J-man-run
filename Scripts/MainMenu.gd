@@ -33,10 +33,9 @@ func _on_quit_btn_pressed():
 
 
 func _on_credits_pressed():
-	#TODO
-	$HellYEAH.play()
+	$HellYEAH.play()      
 	await get_tree().create_timer(0.58).timeout
-	OS.shell_open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+	get_tree().change_scene_to_file("res://Credits.tscn")
 
 func _on_start_btn_mouse_entered():
 	$buttonClic.play()
