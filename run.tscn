@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://comner1sdos6g" path="res://Materials/cluj-napoca-romania-city-urban-preview.jpg" id="4_gl37h"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="4_ldrjr"]
 [ext_resource type="PackedScene" uid="uid://dvovrv1geewgw" path="res://modules/levels/LVL1/1.tscn" id="5_mkei4"]
-[ext_resource type="PackedScene" path="res://hud.tscn" id="6_7ggdo"]
+[ext_resource type="PackedScene" uid="uid://6ntvig1uidbb" path="res://hud.tscn" id="6_7ggdo"]
 [ext_resource type="PackedScene" uid="uid://b5k35i4opb8nn" path="res://modules/levels/LVL1/2.tscn" id="6_gb86g"]
 [ext_resource type="PackedScene" uid="uid://dua2retrapliy" path="res://modules/levels/LVL1/3.tscn" id="7_mymp3"]
 [ext_resource type="PackedScene" uid="uid://ru68dvuxfilb" path="res://modules/levels/LVL1/4.tscn" id="8_8phep"]

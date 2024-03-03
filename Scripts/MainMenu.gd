@@ -34,6 +34,8 @@ func _on_credits_pressed():
 
 func _on_start_btn_mouse_entered():
 	$buttonClic.play()
+	$Jesus.visible = true
+	$Jesus2.visible = false
 
 func _on_credits_mouse_entered():
 	$buttonClic.play()

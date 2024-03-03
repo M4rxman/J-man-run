@@ -43,13 +43,13 @@ func _process(delta):
 
 func spawnModule(n):
 	if initObs > 6: #preload
-		if player.score >= 0 and player.score < 1000:
+		if player.score >= 0 and player.score < 300:
 			currentLevel = lvl1
-		elif player.score >= 1000 and player.score < 2000:
+		elif player.score >= 300 and player.score < 600:
 			currentLevel = lvl2
-		elif player.score >= 2000 and player.score < 3000:
+		elif player.score >= 600 and player.score < 1000:
 			currentLevel = lvl3
-		elif player.score >= 4000:
+		elif player.score >= 1000:
 			currentLevel = lvl4
 		rng.randomize()
 		var num = rng.randi_range(0, currentLevel.size()-1)
@@ -72,7 +72,7 @@ func spawnBackground(i):
 
 func _on_timer_timeout():
 	initObs = 11
-	speedmultiplier += 0.025
+	speedmultiplier += 0.05
 	print(speedmultiplier)
 
 
