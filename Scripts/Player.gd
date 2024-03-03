@@ -14,6 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var death_sensor = $DeathSensor
 @onready var level = $"../Level"
 
+@onready var OST = $"../ost"
 @onready var Camera = $Area3D
 
 var soundFly = true
@@ -27,6 +28,12 @@ var isAlive = true
 
 var score = 0 
 var rotation_angle = 180
+
+func _ready():
+	OST.play(GlobVars.musicProgress)
+
+
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -143,4 +150,5 @@ func death():
 		anim.play("JESUS_DOWN1",-1,2.0)
 		animBoard.play("BOARD_DOWN1",-1,2.0)
 		await get_tree().create_timer(3.0).timeout
+		GlobVars.musicProgress = OST.get_playback_position()
 		get_tree().reload_current_scene()

@@ -13,7 +13,6 @@ extends Node3D
 
 @onready var player = $"../Player"
 
-
 var amount = 25
 var rng = RandomNumberGenerator.new()
 var offset = 10 #perfect 219.974
