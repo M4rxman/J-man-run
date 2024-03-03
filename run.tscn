@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=82 format=3 uid="uid://d12il5gtqswoe"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
 [ext_resource type="PackedScene" uid="uid://bvjg8k1x5igmv" path="res://modules/levels/LVL1/0.tscn" id="4_b7fpb"]
@@ -33,6 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://d1rsbsmb3xyp3" path="res://modules/levels/LVL4/4.tscn" id="27_kbuwa"]
 [ext_resource type="PackedScene" uid="uid://ce1q5svgt8v8w" path="res://modules/levels/LVL4/5.tscn" id="28_ssguy"]
 [ext_resource type="PackedScene" uid="uid://bu18ry4qmwtst" path="res://modules/levels/outside_static.tscn" id="29_41km0"]
+[ext_resource type="PackedScene" uid="uid://b2qyyslulrw8h" path="res://modules/levels/LVL4/6.tscn" id="29_fqqou"]
+[ext_resource type="PackedScene" uid="uid://5g6w720ohh8v" path="res://modules/levels/LVL4/7.tscn" id="30_ygqjl"]
 [ext_resource type="Texture2D" uid="uid://2jweatdhkdjc" path="res://models/Character/textures/redtx.png" id="32_hmqbt"]
 [ext_resource type="Texture2D" uid="uid://65ydsia2be4l" path="res://models/Character/textures/skin.jpg" id="33_s8sqf"]
 [ext_resource type="Texture2D" uid="uid://dyx367s85j8sf" path="res://models/Character/textures/mr.jpg" id="34_p768m"]
@@ -44,6 +46,12 @@
 [ext_resource type="Animation" uid="uid://b24g046fplodi" path="res://models/Character/anims/BOARD_JUMP2.res" id="39_fkm50"]
 [ext_resource type="Animation" uid="uid://btmon5lcod0rm" path="res://models/Character/anims/JESUS_DOWN1.res" id="40_5anw1"]
 [ext_resource type="Animation" uid="uid://bmfbplkixrpdg" path="res://models/Character/anims/BOARD_DOWN1.res" id="43_o5u3m"]
+[ext_resource type="AudioStream" uid="uid://bw48dg5gy1stg" path="res://models/Character/audio/roll-tarmac-101soundboards.mp3" id="46_cjjx3"]
+[ext_resource type="Script" path="res://Scripts/soundScript/groundSound.gd" id="47_8mqp3"]
+[ext_resource type="AudioStream" uid="uid://ddxwdar8v6j5f" path="res://models/Character/audio/flip1-101soundboards.mp3" id="48_yr5k0"]
+[ext_resource type="AudioStream" uid="uid://urgeoiikl8kj" path="res://models/Character/audio/land-101soundboards.mp3" id="49_au65u"]
+[ext_resource type="AudioStream" uid="uid://clwupeljqk636" path="res://models/Character/audio/Minecraft-Death-Sound-Effect.mp3" id="50_4px4t"]
+[ext_resource type="AudioStream" uid="uid://dlxd5d1vaiyln" path="res://models/Character/audio/pole-break-101soundboards.mp3" id="51_kxl26"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b6tpt"]
 
@@ -589,7 +597,7 @@ script = ExtResource("1_tbifd")
 lvl1 = Array[PackedScene]([ExtResource("4_b7fpb"), ExtResource("5_mkei4"), ExtResource("6_gb86g"), ExtResource("7_mymp3"), ExtResource("8_8phep"), ExtResource("9_44gxu"), ExtResource("10_a24om")])
 lvl2 = Array[PackedScene]([ExtResource("9_73mbt"), ExtResource("9_7oyal"), ExtResource("10_62fuc"), ExtResource("11_g55xc"), ExtResource("12_6gf1l"), ExtResource("13_d2wsn"), ExtResource("14_xk546")])
 lvl3 = Array[PackedScene]([ExtResource("16_mqskt"), ExtResource("17_m2865"), ExtResource("18_yvvkg"), ExtResource("19_s00vd"), ExtResource("20_ghrta"), ExtResource("21_dhc12"), ExtResource("22_geooc")])
-lvl4 = Array[PackedScene]([ExtResource("23_ueg8m"), ExtResource("24_5w40k"), ExtResource("25_ptxvs"), ExtResource("26_rglas"), ExtResource("27_kbuwa"), ExtResource("28_ssguy")])
+lvl4 = Array[PackedScene]([ExtResource("23_ueg8m"), ExtResource("24_5w40k"), ExtResource("25_ptxvs"), ExtResource("26_rglas"), ExtResource("27_kbuwa"), ExtResource("28_ssguy"), ExtResource("29_fqqou"), ExtResource("30_ygqjl")])
 lvlBackground = Array[PackedScene]([ExtResource("29_41km0")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -810,7 +818,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30872e-24, 5.52978e-09, 4.76324e-09)
 bones/0/enabled = true
 bones/0/position = Vector3(0.0105688, 0.0058121, -0.0047034)
-bones/0/rotation = Quaternion(0.00481605, -0.0737034, 0.00335269, 0.997263)
+bones/0/rotation = Quaternion(0.00479858, -0.0788795, 0.00337764, 0.996867)
 bones/0/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Player/JESUS/board/Armature_001/Skeleton3D"]
@@ -822,6 +830,23 @@ libraries = {
 "": SubResource("AnimationLibrary_3xhqy")
 }
 
+[node name="groundSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("46_cjjx3")
+script = ExtResource("47_8mqp3")
+
+[node name="jumpSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("48_yr5k0")
+
+[node name="landSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("49_au65u")
+
+[node name="downSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("50_4px4t")
+volume_db = 8.759
+
+[node name="metalicDown" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("51_kxl26")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_7ggdo")]
@@ -832,5 +857,6 @@ libraries = {
 wait_time = 0.1
 one_shot = true
 
+[connection signal="finished" from="Player/JESUS/groundSound" to="Player/JESUS/groundSound" method="_on_finished"]
 [connection signal="timeout" from="Timer" to="Level" method="_on_timer_timeout"]
 [connection signal="timeout" from="ClearWay" to="Level" method="_on_timer_2_timeout"]

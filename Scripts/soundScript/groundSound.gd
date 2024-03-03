@@ -1,6 +1,5 @@
-extends Node
+extends AudioStreamPlayer
 
-@onready var getMainModule = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_body_entered(body):
-	if body.name == "Player":
-		getMainModule.level.player.deathByBarrier()
+func getPlaying():
+	return self.playing
