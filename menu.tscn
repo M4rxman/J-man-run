@@ -1,33 +1,33 @@
-[gd_scene load_steps=19 format=3 uid="uid://65hefounn0o6"]
+[gd_scene load_steps=20 format=3 uid="uid://65hefounn0o6"]
 
 [ext_resource type="PackedScene" uid="uid://d1a1cfwkjyx5" path="res://models/vulkan/test.blend" id="1_6hktp"]
 [ext_resource type="FontFile" uid="uid://cwbcjewq86iii" path="res://Assets/Fonts/A Goblin Appears!.otf" id="1_gnfbd"]
 [ext_resource type="Texture2D" uid="uid://dqy1os6qeivtu" path="res://Assets/Img/menu-background.png" id="1_hca8w"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_po8xk"]
 [ext_resource type="Texture2D" uid="uid://b3k52cq101vrg" path="res://Assets/Img/jesus.png" id="2_am3ve"]
-[ext_resource type="Texture2D" uid="uid://qa47k2dmmcqk" path="res://models/vulkan/pngwing.com.png" id="2_o2pv1"]
+[ext_resource type="Texture2D" uid="uid://c0cwcwnn3dccc" path="res://models/levels/all road staff/textures_for_lvls/lava.jpg" id="2_dfotp"]
 [ext_resource type="Environment" uid="uid://dv48bc7tfi0sg" path="res://Enviorment/run.tres" id="3_bkg3e"]
 [ext_resource type="AudioStream" uid="uid://ewg3nxewcij3" path="res://Music/SFX/shouting-yeah-7043.wav" id="4_jnyq4"]
-[ext_resource type="AudioStream" uid="uid://b3i8yqbgrp2r6" path="res://Music/hate this shit.mp3" id="5_6g5wi"]
 [ext_resource type="AudioStream" uid="uid://oi3nrt0j0kqj" path="res://Music/SFX/button-124476.wav" id="5_l3ukb"]
+[ext_resource type="Script" path="res://Scripts/MarginContainer.gd" id="6_2kqct"]
 [ext_resource type="AudioStream" uid="uid://dbghft8ycyvyt" path="res://Music/SFX/untitled.wav" id="6_2oked"]
+[ext_resource type="AudioStream" uid="uid://34nc6uteoh4n" path="res://Music/game05 (2).wav" id="13_svhfm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kyxl"]
-transparency = 4
-blend_mode = 3
-cull_mode = 1
-albedo_color = Color(0.713726, 0.713726, 0.713726, 1)
-albedo_texture = ExtResource("2_o2pv1")
-albedo_texture_force_srgb = true
-albedo_texture_msdf = true
-grow = true
-grow_amount = 1.475
-proximity_fade_enabled = true
-proximity_fade_distance = 43.45
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvp8p"]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("2_dfotp")
+roughness = 0.76
+roughness_texture = ExtResource("2_dfotp")
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.77
+subsurf_scatter_texture = ExtResource("2_dfotp")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_si4s3"]
-material = SubResource("StandardMaterial3D_1kyxl")
-orientation = 2
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ifs3q"]
+material = SubResource("StandardMaterial3D_wvp8p")
+height = 1.0
+radial_segments = 4
+rings = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ccba"]
 
@@ -50,10 +50,11 @@ transform = Transform3D(1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -21.9011, -12.0539, 
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="BackGround/Level/test"]
 transform = Transform3D(-0.957908, 0.0339643, -0.28506, 0.213163, 0.749259, -0.627034, 0.192287, -0.661405, -0.724961, -2.16312, 12.5203, -0.831421)
-amount = 16
-lifetime = 1.79
+amount = 21
+lifetime = 5.0
+explosiveness = 0.25
 draw_order = 1
-mesh = SubResource("PlaneMesh_si4s3")
+mesh = SubResource("CapsuleMesh_ifs3q")
 emission_shape = 1
 emission_sphere_radius = 1.75
 direction = Vector3(0, 5, 0)
@@ -83,7 +84,7 @@ fov = 50.0
 near = 0.02
 far = 777.0
 
-[node name="Control" type="Control" parent="."]
+[node name="MenuControll" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,13 +92,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BgColor" type="Sprite2D" parent="Control"]
+[node name="BgColor" type="Sprite2D" parent="MenuControll"]
 visible = false
 position = Vector2(575.259, 324.958)
 scale = Vector2(0.902893, 0.902893)
 texture = ExtResource("1_hca8w")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuControll"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,23 +109,29 @@ theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 80
+script = ExtResource("6_2kqct")
 
-[node name="MainMenu" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="Jesus" type="Sprite2D" parent="MenuControll/MarginContainer"]
+position = Vector2(756, 332)
+scale = Vector2(0.990625, 0.990625)
+texture = ExtResource("2_am3ve")
+
+[node name="MainMenu" type="VBoxContainer" parent="MenuControll/MarginContainer"]
 layout_mode = 2
 script = ExtResource("1_po8xk")
 
-[node name="Label" type="Label" parent="Control/MarginContainer/MainMenu"]
+[node name="Label" type="Label" parent="MenuControll/MarginContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_gnfbd")
 theme_override_font_sizes/font_size = 41
-text = "J-man run"
+text = "Holly Kickflip"
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/MainMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuControll/MarginContainer/MainMenu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="StartBtn" type="Button" parent="Control/MarginContainer/MainMenu"]
+[node name="StartBtn" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -138,7 +145,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Start"
 
-[node name="Credits" type="Button" parent="Control/MarginContainer/MainMenu"]
+[node name="Credits" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -152,7 +159,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Credits"
 
-[node name="QuitBtn" type="Button" parent="Control/MarginContainer/MainMenu"]
+[node name="QuitBtn" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -166,33 +173,29 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Quit"
 
-[node name="HellYEAH" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
+[node name="HellYEAH" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
 stream = ExtResource("4_jnyq4")
 
-[node name="buttonClic" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
+[node name="buttonClic" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
 stream = ExtResource("5_l3ukb")
 volume_db = -1.889
 max_polyphony = 4
 
-[node name="Forgive-Me-father" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
+[node name="Forgive-Me-father" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
 stream = ExtResource("6_2oked")
 volume_db = -1.889
 max_polyphony = 4
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/MarginContainer/MainMenu"]
-stream = ExtResource("5_6g5wi")
-volume_db = -9.0
-max_polyphony = 4
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
+stream = ExtResource("13_svhfm")
+volume_db = -3.0
+autoplay = true
+max_polyphony = 2
 
-[node name="Jesus" type="Sprite2D" parent="Control"]
-position = Vector2(754.25, 342)
-scale = Vector2(0.990625, 0.990625)
-texture = ExtResource("2_am3ve")
-
-[connection signal="mouse_entered" from="Control/MarginContainer/MainMenu/StartBtn" to="Control/MarginContainer/MainMenu" method="_on_start_btn_mouse_entered"]
-[connection signal="pressed" from="Control/MarginContainer/MainMenu/StartBtn" to="Control/MarginContainer/MainMenu" method="_on_start_btn_pressed"]
-[connection signal="button_down" from="Control/MarginContainer/MainMenu/Credits" to="Control/MarginContainer/MainMenu" method="_on_credits_button_down"]
-[connection signal="mouse_entered" from="Control/MarginContainer/MainMenu/Credits" to="Control/MarginContainer/MainMenu" method="_on_credits_mouse_entered"]
-[connection signal="pressed" from="Control/MarginContainer/MainMenu/Credits" to="Control/MarginContainer/MainMenu" method="_on_credits_pressed"]
-[connection signal="mouse_entered" from="Control/MarginContainer/MainMenu/QuitBtn" to="Control/MarginContainer/MainMenu" method="_on_quit_btn_mouse_entered"]
-[connection signal="pressed" from="Control/MarginContainer/MainMenu/QuitBtn" to="Control/MarginContainer/MainMenu" method="_on_quit_btn_pressed"]
+[connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/StartBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_start_btn_mouse_entered"]
+[connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/StartBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_start_btn_pressed"]
+[connection signal="button_down" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_button_down"]
+[connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/QuitBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_quit_btn_mouse_entered"]
+[connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/QuitBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_quit_btn_pressed"]

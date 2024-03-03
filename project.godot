@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="J-man-run"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://Video.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://big_cross.png"
+config/icon="res://icon.png"
+
+[autoload]
+
+Transition="*res://Scenes/Transition.tscn"
 
 [display]
 

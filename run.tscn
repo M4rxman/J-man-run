@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=34 format=3 uid="uid://d12il5gtqswoe"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
 [ext_resource type="PackedScene" uid="uid://bvjg8k1x5igmv" path="res://modules/levels/LVL1/0.tscn" id="4_b7fpb"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bk28a7eqgq3as" path="res://modules/levels/LVL3/4.tscn" id="20_ghrta"]
 [ext_resource type="PackedScene" uid="uid://c1ei2lft6c7go" path="res://modules/levels/LVL3/5.tscn" id="21_dhc12"]
 [ext_resource type="PackedScene" uid="uid://cvafp0cyjnakm" path="res://modules/levels/LVL3/6.tscn" id="22_geooc"]
+[ext_resource type="AudioStream" uid="uid://qh56vrrjmfrr" path="res://Music/bk02.mp3" id="23_aa2e6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_22i2q"]
 panorama = ExtResource("4_gl37h")
@@ -61,6 +62,11 @@ script = ExtResource("1_tbifd")
 lvl1 = Array[PackedScene]([ExtResource("4_b7fpb"), ExtResource("5_mkei4"), ExtResource("6_gb86g"), ExtResource("7_mymp3"), ExtResource("8_8phep"), ExtResource("9_44gxu"), ExtResource("10_a24om")])
 lvl2 = Array[PackedScene]([ExtResource("9_73mbt"), ExtResource("9_7oyal"), ExtResource("10_62fuc"), ExtResource("11_g55xc"), ExtResource("12_6gf1l"), ExtResource("13_d2wsn"), ExtResource("14_xk546")])
 lvl3 = Array[PackedScene]([ExtResource("16_mqskt"), ExtResource("17_m2865"), ExtResource("18_yvvkg"), ExtResource("19_s00vd"), ExtResource("20_ghrta"), ExtResource("21_dhc12"), ExtResource("22_geooc")])
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 0.999841, -0.0178363, 0, 0.0178363, 0.999841, 0.00824833, 2.74531, -0.000236988)
+stream = ExtResource("23_aa2e6")
+autoplay = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.998616, 1.90194e-05, -0.998616, 0.052596, 0, 29.6323, -0.491383)
