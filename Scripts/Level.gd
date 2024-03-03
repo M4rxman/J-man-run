@@ -44,13 +44,13 @@ func _process(delta):
 
 func spawnModule(n):
 	if initObs > 6: #preload
-		if player.score >= 0 and player.score < 500:
+		if player.score >= 0 and player.score < 1000:
 			currentLevel = lvl1
-		elif player.score >= 500 and player.score < 1000:
+		elif player.score >= 1000 and player.score < 2000:
 			currentLevel = lvl2
-		elif player.score >= 1000 and player.score < 1500:
+		elif player.score >= 2000 and player.score < 3000:
 			currentLevel = lvl3
-		elif player.score >= 1500:
+		elif player.score >= 4000:
 			currentLevel = lvl4
 		rng.randomize()
 		var num = rng.randi_range(0, currentLevel.size()-1)
