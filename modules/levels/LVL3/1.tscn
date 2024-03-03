@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://cv0ej0rfxk2hl"]
+[gd_scene load_steps=30 format=3 uid="uid://cv0ej0rfxk2hl"]
 
 [ext_resource type="Texture2D" uid="uid://dtybeigs7gauu" path="res://models/levels/all road staff/textures_for_lvls/lk.png" id="1_2s3mu"]
+[ext_resource type="Script" path="res://modules/Module.gd" id="1_44h2o"]
 [ext_resource type="Script" path="res://modules/Area3D/SwampCheck.gd" id="2_5v867"]
 [ext_resource type="Texture2D" uid="uid://dbgpk0fclueu6" path="res://models/levels/all road staff/textures_for_lvls/black.png" id="2_whrmp"]
 [ext_resource type="Script" path="res://modules/Area3D/LavaCheck.gd" id="3_4dno8"]
@@ -291,6 +292,7 @@ size = Vector3(13.6079, 0.644104, 9.97961)
 size = Vector3(1, 3.93787, 10.02)
 
 [node name="1" type="StaticBody3D"]
+script = ExtResource("1_44h2o")
 
 [node name="luck" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122705, 0.199285, 0)
