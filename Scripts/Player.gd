@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 17.0# 13
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 4.75
 
 var rngp = RandomNumberGenerator.new()
 
@@ -26,7 +26,7 @@ var landFly = false
 
 var isAlive = true
 
-var score = 4000
+var score = 0
 var rotation_angle = 180
 
 func _ready():
@@ -147,6 +147,7 @@ func death():
 	if isAlive:
 		isAlive = false
 		level.isPause = true
+		Camera.trauma = 0.5
 		groundSound.stop()
 		deathSound.play(0.53)
 		anim.play("JESUS_DOWN1",-1,2.0)
