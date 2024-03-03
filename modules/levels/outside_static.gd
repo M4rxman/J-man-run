@@ -5,8 +5,11 @@ var speed = 15
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.z += speed * delta
-	if position.z > 282:
-		level.spawnBackground(position.z-(level.backgroundAmount*level.backgroundOffset))
-		queue_free()
+	if level.isPause:
+		pass
+	else:
+		position.z += speed * delta
+		if position.z > 282:
+			level.spawnBackground(position.z-(level.backgroundAmount*level.backgroundOffset))
+			queue_free()
 

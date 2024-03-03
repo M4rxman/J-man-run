@@ -18,6 +18,8 @@ var amount = 25
 var rng = RandomNumberGenerator.new()
 var offset = 10 #perfect 219.974
 
+var isPause = false
+
 var backgroundAmount = 5
 var backgroundOffset = 141.5 #perfect 141.9
 

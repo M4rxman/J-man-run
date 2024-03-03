@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bvjg8k1x5igmv"]
 
-[ext_resource type="Texture2D" uid="uid://clyijt0ut2hod" path="res://models/levels/all road staff/textures_for_lvls/rd1.png" id="1_q450m"]
-[ext_resource type="Texture2D" uid="uid://dc35dx6aecvk2" path="res://models/levels/all road staff/textures_for_lvls/rd2.png" id="2_fu2np"]
+[ext_resource type="Texture2D" uid="uid://clyijt0ut2hod" path="res://models/levels/LVL4/all road staff/textures_for_lvls/rd1.png" id="1_q450m"]
+[ext_resource type="Texture2D" uid="uid://dc35dx6aecvk2" path="res://models/levels/LVL4/all road staff/textures_for_lvls/rd2.png" id="2_fu2np"]
 [ext_resource type="Script" path="res://modules/Module.gd" id="3_ggyay"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0652y"]

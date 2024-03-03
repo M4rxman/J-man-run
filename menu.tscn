@@ -1,16 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://65hefounn0o6"]
+[gd_scene load_steps=21 format=3 uid="uid://65hefounn0o6"]
 
 [ext_resource type="PackedScene" uid="uid://d1a1cfwkjyx5" path="res://models/vulkan/test.blend" id="1_6hktp"]
 [ext_resource type="FontFile" uid="uid://cwbcjewq86iii" path="res://Assets/Fonts/A Goblin Appears!.otf" id="1_gnfbd"]
 [ext_resource type="Texture2D" uid="uid://dqy1os6qeivtu" path="res://Assets/Img/menu-background.png" id="1_hca8w"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_po8xk"]
 [ext_resource type="Texture2D" uid="uid://b3k52cq101vrg" path="res://Assets/Img/jesus.png" id="2_am3ve"]
-[ext_resource type="Texture2D" uid="uid://c0cwcwnn3dccc" path="res://models/levels/all road staff/textures_for_lvls/lava.jpg" id="2_dfotp"]
+[ext_resource type="Texture2D" uid="uid://c0cwcwnn3dccc" path="res://models/levels/LVL4/all road staff/textures_for_lvls/lava.jpg" id="2_dfotp"]
 [ext_resource type="Environment" uid="uid://dv48bc7tfi0sg" path="res://Enviorment/run.tres" id="3_bkg3e"]
 [ext_resource type="AudioStream" uid="uid://ewg3nxewcij3" path="res://Music/SFX/shouting-yeah-7043.wav" id="4_jnyq4"]
 [ext_resource type="AudioStream" uid="uid://oi3nrt0j0kqj" path="res://Music/SFX/button-124476.wav" id="5_l3ukb"]
 [ext_resource type="Script" path="res://Scripts/MarginContainer.gd" id="6_2kqct"]
 [ext_resource type="AudioStream" uid="uid://dbghft8ycyvyt" path="res://Music/SFX/untitled.wav" id="6_2oked"]
+[ext_resource type="Script" path="res://Scripts/menuBtn/ControllerSupport.gd" id="9_v8iec"]
 [ext_resource type="AudioStream" uid="uid://34nc6uteoh4n" path="res://Music/game05 (2).wav" id="13_svhfm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvp8p"]
@@ -144,6 +145,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3w41e")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Start"
+script = ExtResource("9_v8iec")
 
 [node name="Credits" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
@@ -158,6 +160,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3w41e")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Credits"
+script = ExtResource("9_v8iec")
 
 [node name="QuitBtn" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
@@ -172,6 +175,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3w41e")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Quit"
+script = ExtResource("9_v8iec")
 
 [node name="HellYEAH" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
 stream = ExtResource("4_jnyq4")
@@ -192,10 +196,13 @@ volume_db = -3.0
 autoplay = true
 max_polyphony = 2
 
+[connection signal="focus_entered" from="MenuControll/MarginContainer/MainMenu/StartBtn" to="MenuControll/MarginContainer/MainMenu/StartBtn" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/StartBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_start_btn_mouse_entered"]
 [connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/StartBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_start_btn_pressed"]
 [connection signal="button_down" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_button_down"]
+[connection signal="focus_entered" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu/Credits" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_pressed"]
+[connection signal="focus_entered" from="MenuControll/MarginContainer/MainMenu/QuitBtn" to="MenuControll/MarginContainer/MainMenu/QuitBtn" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/QuitBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_quit_btn_mouse_entered"]
 [connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/QuitBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_quit_btn_pressed"]

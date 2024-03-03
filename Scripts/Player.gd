@@ -12,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var anim = $JESUS/AnimationPlayer
 @onready var animBoard = $JESUS/board/AnimationBoard
 @onready var death_sensor = $DeathSensor
+@onready var level = $"../Level"
 
 var score = 0
 var rotation_angle = 180
@@ -92,5 +93,8 @@ func deathByBarrier():
 
 func death():
 	#print("DEAD")
-	await get_tree().create_timer(10.0).timeout
+	#await get_tree().create_timer(10.0).timeout
+	#get_tree().reload_current_scene()
+	level.isPause = true
+	await get_tree().create_timer(3.0).timeout
 	get_tree().reload_current_scene()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=76 format=3 uid="uid://d12il5gtqswoe"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
 [ext_resource type="PackedScene" uid="uid://bvjg8k1x5igmv" path="res://modules/levels/LVL1/0.tscn" id="4_b7fpb"]
@@ -42,6 +42,7 @@
 [ext_resource type="Animation" uid="uid://bwy4k2iryuvla" path="res://models/Character/anims/BOARD_JUMP1.res" id="38_34gil"]
 [ext_resource type="Animation" uid="uid://bj5f0h0c501p3" path="res://models/Character/anims/JESUS_JUMP2.res" id="38_qma5v"]
 [ext_resource type="Animation" uid="uid://b24g046fplodi" path="res://models/Character/anims/BOARD_JUMP2.res" id="39_fkm50"]
+[ext_resource type="Script" path="res://Scripts/ChangeScene.gd" id="43_0t38s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b6tpt"]
 
@@ -585,6 +586,59 @@ _data = {
 "BOARD_JUMP2": ExtResource("39_fkm50")
 }
 
+[sub_resource type="Animation" id="Animation_6i6rv"]
+resource_name = "load"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v7bb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_do2wi"]
+_data = {
+"RESET": SubResource("Animation_v7bb4"),
+"open_scene": SubResource("Animation_6i6rv")
+}
+
 [node name="Run" type="Node3D"]
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
@@ -835,6 +889,21 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_7ggdo")]
+
+[node name="ChangeScene" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("43_0t38s")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ChangeScene"]
+offset_right = 1158.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ChangeScene"]
+libraries = {
+"": SubResource("AnimationLibrary_do2wi")
+}
 
 [node name="Timer" type="Timer" parent="."]
 
