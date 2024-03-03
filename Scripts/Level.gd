@@ -6,9 +6,9 @@ extends Node3D
 @export var lvl3: Array[PackedScene] = []
 @export var lvl4: Array[PackedScene] = []
 @export var lvl5: Array[PackedScene] = []
-@export var lvl6: Array[PackedScene] = []
-@export var lvl7: Array[PackedScene] = []
-@export var lvl8: Array[PackedScene] = []
+#@export var lvl6: Array[PackedScene] = []
+#@export var lvl7: Array[PackedScene] = []
+#@export var lvl8: Array[PackedScene] = []
 
 @onready var player = $"../Player"
 
