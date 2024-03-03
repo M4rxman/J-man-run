@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://btyq66cx7rkra"]
+
+[ext_resource type="VideoStream" path="res://q_1.ogv" id="1_0dtql"]
+[ext_resource type="Script" path="res://Intro.gd" id="2_mgeir"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.749
+anchor_bottom = 16.201
+offset_left = -82.0
+offset_top = -40.0
+offset_right = 48.04
+offset_bottom = 33.96
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_0dtql")
+autoplay = true
+script = ExtResource("2_mgeir")
+
+[connection signal="finished" from="Control/VideoStreamPlayer" to="Control/VideoStreamPlayer" method="_on_finished"]

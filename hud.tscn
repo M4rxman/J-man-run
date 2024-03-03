@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://6ntvig1uidbb"]
+
+[ext_resource type="FontFile" uid="uid://cwbcjewq86iii" path="res://Assets/Fonts/A Goblin Appears!.otf" id="1_n82ny"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -206.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_n82ny")
+theme_override_font_sizes/font_size = 31
+text = "SCORE"
+horizontal_alignment = 2
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -345.0
+offset_top = 48.0
+offset_right = -4.0
+offset_bottom = 79.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_n82ny")
+theme_override_font_sizes/font_size = 31
+text = "0"
+horizontal_alignment = 2

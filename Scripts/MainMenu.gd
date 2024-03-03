@@ -5,7 +5,7 @@ var time_delay
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$AudioStreamPlayer.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,6 +14,7 @@ func _process(delta):
 
 
 func _on_start_btn_pressed():
+	print("Hell Yeah")
 	$HellYEAH.play()
 	await get_tree().create_timer(0.58).timeout
 	get_tree().change_scene_to_file("res://run.tscn")
