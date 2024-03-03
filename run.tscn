@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://comner1sdos6g" path="res://Materials/cluj-napoca-romania-city-urban-preview.jpg" id="4_gl37h"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="4_ldrjr"]
 [ext_resource type="PackedScene" uid="uid://dvovrv1geewgw" path="res://modules/levels/LVL1/1.tscn" id="5_mkei4"]
-[ext_resource type="PackedScene" path="res://hud.tscn" id="6_7ggdo"]
+[ext_resource type="PackedScene" uid="uid://6ntvig1uidbb" path="res://hud.tscn" id="6_7ggdo"]
 [ext_resource type="PackedScene" uid="uid://b5k35i4opb8nn" path="res://modules/levels/LVL1/2.tscn" id="6_gb86g"]
 [ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="6_y4k44"]
 [ext_resource type="PackedScene" uid="uid://dua2retrapliy" path="res://modules/levels/LVL1/3.tscn" id="7_mymp3"]
@@ -33,8 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://d1rsbsmb3xyp3" path="res://modules/levels/LVL4/4.tscn" id="27_kbuwa"]
 [ext_resource type="PackedScene" uid="uid://ce1q5svgt8v8w" path="res://modules/levels/LVL4/5.tscn" id="28_ssguy"]
 [ext_resource type="PackedScene" uid="uid://bu18ry4qmwtst" path="res://modules/levels/outside_static.tscn" id="29_41km0"]
-[ext_resource type="PackedScene" uid="uid://b2qyyslulrw8h" path="res://modules/levels/LVL4/6.tscn" id="29_fqqou"]
-[ext_resource type="PackedScene" uid="uid://5g6w720ohh8v" path="res://modules/levels/LVL4/7.tscn" id="30_ygqjl"]
+[ext_resource type="PackedScene" path="res://modules/levels/LVL4/6.tscn" id="29_fqqou"]
+[ext_resource type="PackedScene" path="res://modules/levels/LVL4/7.tscn" id="30_ygqjl"]
 [ext_resource type="Texture2D" uid="uid://2jweatdhkdjc" path="res://models/Character/textures/redtx.png" id="32_hmqbt"]
 [ext_resource type="Texture2D" uid="uid://65ydsia2be4l" path="res://models/Character/textures/skin.jpg" id="33_s8sqf"]
 [ext_resource type="Texture2D" uid="uid://dyx367s85j8sf" path="res://models/Character/textures/mr.jpg" id="34_p768m"]
@@ -44,8 +44,8 @@
 [ext_resource type="Animation" uid="uid://bwy4k2iryuvla" path="res://models/Character/anims/BOARD_JUMP1.res" id="38_34gil"]
 [ext_resource type="Animation" uid="uid://bj5f0h0c501p3" path="res://models/Character/anims/JESUS_JUMP2.res" id="38_qma5v"]
 [ext_resource type="Animation" uid="uid://b24g046fplodi" path="res://models/Character/anims/BOARD_JUMP2.res" id="39_fkm50"]
-[ext_resource type="Animation" uid="uid://btmon5lcod0rm" path="res://models/Character/anims/JESUS_DOWN1.res" id="40_5anw1"]
-[ext_resource type="Animation" uid="uid://bmfbplkixrpdg" path="res://models/Character/anims/BOARD_DOWN1.res" id="43_o5u3m"]
+[ext_resource type="Animation" path="res://models/Character/anims/JESUS_DOWN1.res" id="40_5anw1"]
+[ext_resource type="Animation" path="res://models/Character/anims/BOARD_DOWN1.res" id="43_o5u3m"]
 [ext_resource type="AudioStream" uid="uid://bw48dg5gy1stg" path="res://models/Character/audio/roll-tarmac-101soundboards.mp3" id="46_cjjx3"]
 [ext_resource type="Script" path="res://Scripts/soundScript/groundSound.gd" id="47_8mqp3"]
 [ext_resource type="AudioStream" uid="uid://ddxwdar8v6j5f" path="res://models/Character/audio/flip1-101soundboards.mp3" id="48_yr5k0"]
@@ -69,9 +69,11 @@ sky_rotation = Vector3(-0.0820305, -3.14159, 0)
 ambient_light_color = Color(0.960784, 0.698039, 0.313726, 1)
 ambient_light_sky_contribution = 0.9
 tonemap_mode = 3
-fog_light_color = Color(0.509804, 0.211765, 0.156863, 1)
-fog_density = 0.05
+fog_enabled = true
+fog_light_color = Color(0.52549, 0.239216, 0.141176, 1)
+fog_density = 0.03
 fog_aerial_perspective = 0.03
+fog_sky_affect = 0.8
 volumetric_fog_density = 0.0995
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0j5rw"]
