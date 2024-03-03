@@ -14,6 +14,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var death_sensor = $DeathSensor
 @onready var level = $"../Level"
 
+@onready var Camera = $Area3D
+
 var soundFly = true
 var landFly = false
 @onready var groundSound = $JESUS/groundSound
@@ -35,6 +37,7 @@ func _physics_process(delta):
 		groundSound.stop()
 		jumpSound.pitch_scale = randf_range(1.2,1)
 		jumpSound.play()
+		Camera.trauma = 0.5
 		velocity.y = JUMP_VELOCITY
 		rngp.randomize()
 		var num = rngp.randi_range(0, 1)
