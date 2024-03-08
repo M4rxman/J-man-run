@@ -72,7 +72,8 @@ func spawnBackground(i):
 
 func _on_timer_timeout():
 	initObs = 11
-	speedmultiplier += 0.05
+	if speedmultiplier < 5:
+		speedmultiplier += 0.05
 	print(speedmultiplier)
 
 
