@@ -20,6 +20,9 @@ data = PackedVector3Array(-1.1365, -0.9459, -0.4579, -0.3253, 0.3249, -1.1336, -
 [node name="5" instance=ExtResource("1_iaohm")]
 script = ExtResource("2_r0bit")
 
+[node name="Car" parent="." index="2"]
+transform = Transform3D(-1.11951, 0, -0.440986, 0, 1.20323, 0, 0.440986, 0, -1.11951, 4.42754, -0.139945, 0.047455)
+
 [node name="road1" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00219727, -0.177948, -0.0117798)
 shape = SubResource("BoxShape3D_cuoic")
@@ -36,7 +39,7 @@ shape = SubResource("BoxShape3D_55v81")
 script = ExtResource("2_orfot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3" index="0"]
-transform = Transform3D(1.1198, 0, 0.440242, 0, 1.20323, 0, -0.440242, 0, 1.1198, 4.42754, -0.139945, 0.047455)
+transform = Transform3D(-1.11951, 0, -0.440986, 0, 1.20323, 0, 0.440986, 0, -1.11951, 4.42754, -0.139945, 0.047455)
 shape = SubResource("ConcavePolygonShape3D_u6qdx")
 
 [node name="Area3D" type="Area3D" parent="." index="7"]

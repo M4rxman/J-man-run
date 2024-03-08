@@ -13,10 +13,11 @@ extends Node3D
 
 @onready var player = $"../Player"
 
-
 var amount = 25
 var rng = RandomNumberGenerator.new()
 var offset = 10 #perfect 219.974
+
+var isPause = false
 
 var backgroundAmount = 5
 var backgroundOffset = 141.5 #perfect 141.9
@@ -36,19 +37,19 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("Escape"):
 		get_tree().change_scene_to_file("res://menu.tscn")
 	
 
 func spawnModule(n):
 	if initObs > 6: #preload
-		if player.score >= 0 and player.score < 500:
+		if player.score >= 0 and player.score < 300:
 			currentLevel = lvl1
-		elif player.score >= 500 and player.score < 1000:
+		elif player.score >= 300 and player.score < 600:
 			currentLevel = lvl2
-		elif player.score >= 1000 and player.score < 1500:
+		elif player.score >= 600 and player.score < 1000:
 			currentLevel = lvl3
-		elif player.score >= 1500:
+		elif player.score >= 1000:
 			currentLevel = lvl4
 		rng.randomize()
 		var num = rng.randi_range(0, currentLevel.size()-1)
@@ -71,7 +72,8 @@ func spawnBackground(i):
 
 func _on_timer_timeout():
 	initObs = 11
-	speedmultiplier += 0.025
+	if speedmultiplier < 5:
+		speedmultiplier += 0.05
 	print(speedmultiplier)
 
 

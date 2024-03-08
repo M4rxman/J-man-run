@@ -1,17 +1,21 @@
-[gd_scene load_steps=20 format=3 uid="uid://65hefounn0o6"]
+[gd_scene load_steps=24 format=3 uid="uid://65hefounn0o6"]
 
 [ext_resource type="PackedScene" uid="uid://d1a1cfwkjyx5" path="res://models/vulkan/test.blend" id="1_6hktp"]
 [ext_resource type="FontFile" uid="uid://cwbcjewq86iii" path="res://Assets/Fonts/A Goblin Appears!.otf" id="1_gnfbd"]
 [ext_resource type="Texture2D" uid="uid://dqy1os6qeivtu" path="res://Assets/Img/menu-background.png" id="1_hca8w"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_po8xk"]
+[ext_resource type="PackedScene" uid="uid://ywyoh706l6e0" path="res://models/vulkan/volkan.blend" id="1_yv4hc"]
 [ext_resource type="Texture2D" uid="uid://b3k52cq101vrg" path="res://Assets/Img/jesus.png" id="2_am3ve"]
-[ext_resource type="Texture2D" uid="uid://c0cwcwnn3dccc" path="res://models/levels/all road staff/textures_for_lvls/lava.jpg" id="2_dfotp"]
+[ext_resource type="Texture2D" uid="uid://c0cwcwnn3dccc" path="res://models/levels/LVL4/all road staff/textures_for_lvls/lava.jpg" id="2_dfotp"]
 [ext_resource type="Environment" uid="uid://dv48bc7tfi0sg" path="res://Enviorment/run.tres" id="3_bkg3e"]
 [ext_resource type="AudioStream" uid="uid://ewg3nxewcij3" path="res://Music/SFX/shouting-yeah-7043.wav" id="4_jnyq4"]
 [ext_resource type="AudioStream" uid="uid://oi3nrt0j0kqj" path="res://Music/SFX/button-124476.wav" id="5_l3ukb"]
 [ext_resource type="Script" path="res://Scripts/MarginContainer.gd" id="6_2kqct"]
 [ext_resource type="AudioStream" uid="uid://dbghft8ycyvyt" path="res://Music/SFX/untitled.wav" id="6_2oked"]
+[ext_resource type="Script" path="res://Scripts/menuBtn/ControllerSupport.gd" id="9_v8iec"]
 [ext_resource type="AudioStream" uid="uid://34nc6uteoh4n" path="res://Music/game05 (2).wav" id="13_svhfm"]
+[ext_resource type="Texture2D" uid="uid://blsrghjw6ixgk" path="res://1709388225271.png" id="15_r8643"]
+[ext_resource type="Script" path="res://Scripts/Jesus2.gd" id="16_bdbfp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvp8p"]
 transparency = 1
@@ -45,11 +49,11 @@ rings = 3
 
 [node name="Level" type="Node3D" parent="BackGround"]
 
-[node name="test" parent="BackGround/Level" instance=ExtResource("1_6hktp")]
-transform = Transform3D(1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -21.9011, -12.0539, -54.8287)
+[node name="volkan" parent="BackGround/Level" instance=ExtResource("1_yv4hc")]
+transform = Transform3D(1.88023, 0, 0.935276, 0, 2.1, 0, -0.935276, 0, 1.88023, -21.901, -8.895, -44.6103)
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="BackGround/Level/test"]
-transform = Transform3D(-0.957908, 0.0339643, -0.28506, 0.213163, 0.749259, -0.627034, 0.192287, -0.661405, -0.724961, -2.16312, 12.5203, -0.831421)
+[node name="CPUParticles3D" type="CPUParticles3D" parent="BackGround/Level"]
+transform = Transform3D(-1.50392, 0.053324, -0.447544, 0.334666, 1.17634, -0.984443, 0.301891, -1.03841, -1.13819, -25.2972, 7.60297, -56.134)
 amount = 21
 lifetime = 5.0
 explosiveness = 0.25
@@ -59,6 +63,10 @@ emission_shape = 1
 emission_sphere_radius = 1.75
 direction = Vector3(0, 5, 0)
 gravity = Vector3(0, 3.335, 0)
+
+[node name="test" parent="BackGround/Level" instance=ExtResource("1_6hktp")]
+transform = Transform3D(1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, -21.9011, -12.0539, -54.8287)
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="BackGround/Level"]
 transform = Transform3D(1, 1.90501e-05, 8.28934e-08, -1.08474e-06, 0.052596, 0.998616, 1.90194e-05, -0.998616, 0.052596, -0.0627947, 29.6516, -0.349475)
@@ -98,7 +106,7 @@ position = Vector2(575.259, 324.958)
 scale = Vector2(0.902893, 0.902893)
 texture = ExtResource("1_hca8w")
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuControll"]
+[node name="Margin" type="MarginContainer" parent="MenuControll"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,27 +119,27 @@ theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 80
 script = ExtResource("6_2kqct")
 
-[node name="Jesus" type="Sprite2D" parent="MenuControll/MarginContainer"]
-position = Vector2(756, 332)
-scale = Vector2(0.990625, 0.990625)
-texture = ExtResource("2_am3ve")
-
-[node name="MainMenu" type="VBoxContainer" parent="MenuControll/MarginContainer"]
+[node name="MainMenu" type="VBoxContainer" parent="MenuControll/Margin"]
 layout_mode = 2
 script = ExtResource("1_po8xk")
 
-[node name="Label" type="Label" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="Jesus" type="Sprite2D" parent="MenuControll/Margin/MainMenu"]
+position = Vector2(692, 252)
+scale = Vector2(0.990625, 0.990625)
+texture = ExtResource("2_am3ve")
+
+[node name="Label" type="Label" parent="MenuControll/Margin/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_gnfbd")
 theme_override_font_sizes/font_size = 41
 text = "Holly Kickflip"
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuControll/Margin/MainMenu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="StartBtn" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="StartBtn" type="Button" parent="MenuControll/Margin/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -144,8 +152,9 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3w41e")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Start"
+script = ExtResource("9_v8iec")
 
-[node name="Credits" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="Credits" type="Button" parent="MenuControll/Margin/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -158,8 +167,13 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3w41e")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Credits"
+script = ExtResource("9_v8iec")
 
-[node name="QuitBtn" type="Button" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="MarginContainer2" type="MarginContainer" parent="MenuControll/Margin/MainMenu"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="QuitBtn" type="Button" parent="MenuControll/Margin/MainMenu"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -172,30 +186,43 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3w41e")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vxi0n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37d33")
 text = "Quit"
+script = ExtResource("9_v8iec")
 
-[node name="HellYEAH" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="HellYEAH" type="AudioStreamPlayer" parent="MenuControll/Margin/MainMenu"]
 stream = ExtResource("4_jnyq4")
+volume_db = 8.0
 
-[node name="buttonClic" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="buttonClic" type="AudioStreamPlayer" parent="MenuControll/Margin/MainMenu"]
 stream = ExtResource("5_l3ukb")
 volume_db = -1.889
 max_polyphony = 4
 
-[node name="Forgive-Me-father" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="Forgive-Me-father" type="AudioStreamPlayer" parent="MenuControll/Margin/MainMenu"]
 stream = ExtResource("6_2oked")
-volume_db = -1.889
+volume_db = -1.9
 max_polyphony = 4
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuControll/MarginContainer/MainMenu"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuControll/Margin/MainMenu"]
 stream = ExtResource("13_svhfm")
-volume_db = -3.0
+volume_db = -9.0
 autoplay = true
 max_polyphony = 2
 
-[connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/StartBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_start_btn_mouse_entered"]
-[connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/StartBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_start_btn_pressed"]
-[connection signal="button_down" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_button_down"]
-[connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_mouse_entered"]
-[connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/Credits" to="MenuControll/MarginContainer/MainMenu" method="_on_credits_pressed"]
-[connection signal="mouse_entered" from="MenuControll/MarginContainer/MainMenu/QuitBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_quit_btn_mouse_entered"]
-[connection signal="pressed" from="MenuControll/MarginContainer/MainMenu/QuitBtn" to="MenuControll/MarginContainer/MainMenu" method="_on_quit_btn_pressed"]
+[node name="Jesus2" type="Sprite2D" parent="MenuControll/Margin/MainMenu"]
+visible = false
+position = Vector2(692, 252)
+scale = Vector2(0.990625, 0.990625)
+texture = ExtResource("15_r8643")
+script = ExtResource("16_bdbfp")
+
+[connection signal="focus_entered" from="MenuControll/Margin/MainMenu/StartBtn" to="MenuControll/Margin/MainMenu/StartBtn" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="MenuControll/Margin/MainMenu/StartBtn" to="MenuControll/Margin/MainMenu" method="_on_start_btn_mouse_entered"]
+[connection signal="pressed" from="MenuControll/Margin/MainMenu/StartBtn" to="MenuControll/Margin" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MenuControll/Margin/MainMenu/StartBtn" to="MenuControll/Margin/MainMenu" method="_on_start_btn_pressed"]
+[connection signal="button_down" from="MenuControll/Margin/MainMenu/Credits" to="MenuControll/Margin/MainMenu" method="_on_credits_button_down"]
+[connection signal="focus_entered" from="MenuControll/Margin/MainMenu/Credits" to="MenuControll/Margin/MainMenu/Credits" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="MenuControll/Margin/MainMenu/Credits" to="MenuControll/Margin/MainMenu" method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="MenuControll/Margin/MainMenu/Credits" to="MenuControll/Margin/MainMenu" method="_on_credits_pressed"]
+[connection signal="focus_entered" from="MenuControll/Margin/MainMenu/QuitBtn" to="MenuControll/Margin/MainMenu/QuitBtn" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="MenuControll/Margin/MainMenu/QuitBtn" to="MenuControll/Margin/MainMenu" method="_on_quit_btn_mouse_entered"]
+[connection signal="pressed" from="MenuControll/Margin/MainMenu/QuitBtn" to="MenuControll/Margin/MainMenu" method="_on_quit_btn_pressed"]

@@ -14,5 +14,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		getMainModule.level.player.deathBySwamp()
-		print("DEAD BY SWAMP")
+		getMainModule.level.player.deathByRock()

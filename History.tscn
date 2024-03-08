@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://xonavfymamfg"]
+
+[ext_resource type="AudioStream" uid="uid://34nc6uteoh4n" path="res://Music/game05 (2).wav" id="1_gy4xs"]
+[ext_resource type="VideoStream" path="res://-1_1.ogv" id="2_1a2mv"]
+[ext_resource type="Script" path="res://VideoStreamPlayer.gd" id="3_uq0fa"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("1_gy4xs")
+volume_db = -3.0
+max_polyphony = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 616.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_1a2mv")
+autoplay = true
+script = ExtResource("3_uq0fa")
+
+[connection signal="finished" from="Control/VideoStreamPlayer" to="Control/VideoStreamPlayer" method="_on_finished"]

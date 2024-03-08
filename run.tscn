@@ -1,13 +1,13 @@
-[gd_scene load_steps=72 format=3 uid="uid://d12il5gtqswoe"]
+[gd_scene load_steps=85 format=3 uid="uid://d12il5gtqswoe"]
 
+[ext_resource type="AudioStream" uid="uid://okbwymvw7lov" path="res://Music/bk02.wav" id="1_5fww4"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_tbifd"]
 [ext_resource type="PackedScene" uid="uid://bvjg8k1x5igmv" path="res://modules/levels/LVL1/0.tscn" id="4_b7fpb"]
 [ext_resource type="Texture2D" uid="uid://comner1sdos6g" path="res://Materials/cluj-napoca-romania-city-urban-preview.jpg" id="4_gl37h"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="4_ldrjr"]
 [ext_resource type="PackedScene" uid="uid://dvovrv1geewgw" path="res://modules/levels/LVL1/1.tscn" id="5_mkei4"]
-[ext_resource type="PackedScene" path="res://hud.tscn" id="6_7ggdo"]
+[ext_resource type="PackedScene" uid="uid://6ntvig1uidbb" path="res://hud.tscn" id="6_7ggdo"]
 [ext_resource type="PackedScene" uid="uid://b5k35i4opb8nn" path="res://modules/levels/LVL1/2.tscn" id="6_gb86g"]
-[ext_resource type="Script" path="res://Scripts/Camera3D.gd" id="6_y4k44"]
 [ext_resource type="PackedScene" uid="uid://dua2retrapliy" path="res://modules/levels/LVL1/3.tscn" id="7_mymp3"]
 [ext_resource type="PackedScene" uid="uid://ru68dvuxfilb" path="res://modules/levels/LVL1/4.tscn" id="8_8phep"]
 [ext_resource type="PackedScene" uid="uid://dshk5i5wfrost" path="res://modules/levels/LVL2/1.tscn" id="9_7oyal"]
@@ -33,7 +33,10 @@
 [ext_resource type="PackedScene" uid="uid://d1rsbsmb3xyp3" path="res://modules/levels/LVL4/4.tscn" id="27_kbuwa"]
 [ext_resource type="PackedScene" uid="uid://ce1q5svgt8v8w" path="res://modules/levels/LVL4/5.tscn" id="28_ssguy"]
 [ext_resource type="PackedScene" uid="uid://bu18ry4qmwtst" path="res://modules/levels/outside_static.tscn" id="29_41km0"]
+[ext_resource type="PackedScene" uid="uid://b2qyyslulrw8h" path="res://modules/levels/LVL4/6.tscn" id="29_fqqou"]
+[ext_resource type="PackedScene" uid="uid://5g6w720ohh8v" path="res://modules/levels/LVL4/7.tscn" id="30_ygqjl"]
 [ext_resource type="Texture2D" uid="uid://2jweatdhkdjc" path="res://models/Character/textures/redtx.png" id="32_hmqbt"]
+[ext_resource type="Script" path="res://Scripts/CameraShake.gd" id="33_f5n1i"]
 [ext_resource type="Texture2D" uid="uid://65ydsia2be4l" path="res://models/Character/textures/skin.jpg" id="33_s8sqf"]
 [ext_resource type="Texture2D" uid="uid://dyx367s85j8sf" path="res://models/Character/textures/mr.jpg" id="34_p768m"]
 [ext_resource type="Texture2D" uid="uid://d2otupl6ubmgn" path="res://models/Character/textures/white.png" id="35_7jpt8"]
@@ -42,6 +45,14 @@
 [ext_resource type="Animation" uid="uid://bwy4k2iryuvla" path="res://models/Character/anims/BOARD_JUMP1.res" id="38_34gil"]
 [ext_resource type="Animation" uid="uid://bj5f0h0c501p3" path="res://models/Character/anims/JESUS_JUMP2.res" id="38_qma5v"]
 [ext_resource type="Animation" uid="uid://b24g046fplodi" path="res://models/Character/anims/BOARD_JUMP2.res" id="39_fkm50"]
+[ext_resource type="Animation" uid="uid://btmon5lcod0rm" path="res://models/Character/anims/JESUS_DOWN1.res" id="40_5anw1"]
+[ext_resource type="Animation" uid="uid://bmfbplkixrpdg" path="res://models/Character/anims/BOARD_DOWN1.res" id="43_o5u3m"]
+[ext_resource type="AudioStream" uid="uid://bw48dg5gy1stg" path="res://models/Character/audio/roll-tarmac-101soundboards.mp3" id="46_cjjx3"]
+[ext_resource type="Script" path="res://Scripts/soundScript/groundSound.gd" id="47_8mqp3"]
+[ext_resource type="AudioStream" uid="uid://ddxwdar8v6j5f" path="res://models/Character/audio/flip1-101soundboards.mp3" id="48_yr5k0"]
+[ext_resource type="AudioStream" uid="uid://urgeoiikl8kj" path="res://models/Character/audio/land-101soundboards.mp3" id="49_au65u"]
+[ext_resource type="AudioStream" uid="uid://clwupeljqk636" path="res://models/Character/audio/Minecraft-Death-Sound-Effect.mp3" id="50_4px4t"]
+[ext_resource type="AudioStream" uid="uid://dlxd5d1vaiyln" path="res://models/Character/audio/pole-break-101soundboards.mp3" id="51_kxl26"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b6tpt"]
 
@@ -59,10 +70,17 @@ sky_rotation = Vector3(-0.0820305, -3.14159, 0)
 ambient_light_color = Color(0.960784, 0.698039, 0.313726, 1)
 ambient_light_sky_contribution = 0.9
 tonemap_mode = 3
-fog_light_color = Color(0.509804, 0.211765, 0.156863, 1)
-fog_density = 0.05
+fog_enabled = true
+fog_light_color = Color(0.52549, 0.239216, 0.141176, 1)
+fog_density = 0.03
 fog_aerial_perspective = 0.03
+fog_sky_affect = 0.8
 volumetric_fog_density = 0.0995
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w2vhd"]
+seed = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gc7h3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0j5rw"]
 
@@ -466,24 +484,11 @@ tracks/18/path = NodePath("Armature/Skeleton3D:Bone.018")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = PackedFloat32Array(0, 1, -0.0391201, 0.0135355, 0.645554, 0.762592, 0.0333333, 1, -0.0391201, 0.0135355, 0.645554, 0.762592, 0.0666667, 1, -0.0512429, 0.0201251, 0.653354, 0.755048, 0.1, 1, -0.0647256, 0.0274515, 0.661803, 0.746374, 0.133333, 1, -0.0744747, 0.0327429, 0.667761, 0.739916, 0.166667, 1, -0.0810401, 0.0362991, 0.671702, 0.73548, 0.2, 1, -0.0844322, 0.0381278, 0.673713, 0.733163, 0.233333, 1, -0.0862321, 0.0390929, 0.674773, 0.731927, 0.266667, 1, -0.0869625, 0.0394807, 0.675201, 0.731425, 0.3, 1, -0.0865766, 0.0392674, 0.674973, 0.731693, 0.333333, 1, -0.0844585, 0.0381182, 0.673723, 0.733152, 0.366667, 1, -0.0789904, 0.0351516, 0.670468, 0.736884, 0.4, 1, -0.0720059, 0.031363, 0.666254, 0.741578, 0.433333, 1, -0.064173, 0.0271152, 0.661451, 0.746745, 0.466667, 1, -0.0561634, 0.0227725, 0.656458, 0.751925, 0.5, 1, -0.048652, 0.018701, 0.651699, 0.756685, 0.533333, 1, -0.0431575, 0.0157233, 0.648171, 0.760108, 0.566667, 1, -0.0401855, 0.0141128, 0.646246, 0.761939, 0.583333, 1, -0.0391201, 0.0135355, 0.645554, 0.762592)
-tracks/19/type = "position_3d"
-tracks/19/imported = true
-tracks/19/enabled = true
-tracks/19/path = NodePath("Armature_001/Skeleton3D:Bone")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = PackedFloat32Array(0, 1, 3.30872e-24, 5.52978e-09, 4.76324e-09)
-tracks/20/type = "rotation_3d"
-tracks/20/imported = true
-tracks/20/enabled = true
-tracks/20/path = NodePath("Armature_001/Skeleton3D:Bone")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6fovw"]
 _data = {
 "ArmatureAction": SubResource("Animation_dvv4i"),
+"JESUS_DOWN1": ExtResource("40_5anw1"),
 "JESUS_JUMP1": ExtResource("37_27urh"),
 "JESUS_JUMP2": ExtResource("38_qma5v")
 }
@@ -581,11 +586,16 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0.00481605, -0.0737034, 0.00335269, 0.9
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3xhqy"]
 _data = {
 "Armature_001Action": SubResource("Animation_dym0i"),
+"BOARD_DOWN1": ExtResource("43_o5u3m"),
 "BOARD_JUMP1": ExtResource("38_34gil"),
 "BOARD_JUMP2": ExtResource("39_fkm50")
 }
 
 [node name="Run" type="Node3D"]
+
+[node name="ost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5fww4")
+volume_db = 3.0
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.122065, 0, 0, 0, 1, 0, 0.323519, 0)
@@ -599,7 +609,7 @@ script = ExtResource("1_tbifd")
 lvl1 = Array[PackedScene]([ExtResource("4_b7fpb"), ExtResource("5_mkei4"), ExtResource("6_gb86g"), ExtResource("7_mymp3"), ExtResource("8_8phep"), ExtResource("9_44gxu"), ExtResource("10_a24om")])
 lvl2 = Array[PackedScene]([ExtResource("9_73mbt"), ExtResource("9_7oyal"), ExtResource("10_62fuc"), ExtResource("11_g55xc"), ExtResource("12_6gf1l"), ExtResource("13_d2wsn"), ExtResource("14_xk546")])
 lvl3 = Array[PackedScene]([ExtResource("16_mqskt"), ExtResource("17_m2865"), ExtResource("18_yvvkg"), ExtResource("19_s00vd"), ExtResource("20_ghrta"), ExtResource("21_dhc12"), ExtResource("22_geooc")])
-lvl4 = Array[PackedScene]([ExtResource("23_ueg8m"), ExtResource("24_5w40k"), ExtResource("25_ptxvs"), ExtResource("26_rglas"), ExtResource("27_kbuwa"), ExtResource("28_ssguy")])
+lvl4 = Array[PackedScene]([ExtResource("23_ueg8m"), ExtResource("24_5w40k"), ExtResource("25_ptxvs"), ExtResource("26_rglas"), ExtResource("27_kbuwa"), ExtResource("28_ssguy"), ExtResource("29_fqqou"), ExtResource("30_ygqjl")])
 lvlBackground = Array[PackedScene]([ExtResource("29_41km0")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -611,6 +621,19 @@ environment = SubResource("Environment_rbtmo")
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181713, 0)
 script = ExtResource("4_ldrjr")
+
+[node name="Area3D" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.181713, 0)
+script = ExtResource("33_f5n1i")
+noise = SubResource("FastNoiseLite_w2vhd")
+
+[node name="Camera3D" type="Camera3D" parent="Player/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.983134, 0.182888, 0, -0.182888, 0.983134, 0, 4.58978, 5.76077)
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
+visible = false
+shape = SubResource("SphereShape3D_gc7h3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -628,11 +651,6 @@ shape = SubResource("BoxShape3D_ge2no")
 [node name="DeathSensor" type="RayCast3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, -0.0119902, -0.999928, 0, 0.999928, -0.0119902, 0, 0.461814, 0)
 visible = false
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.983134, 0.182888, 0, -0.182888, 0.983134, 0, 4.40807, 5.76077)
-current = true
-script = ExtResource("6_y4k44")
 
 [node name="JESUS" type="Node3D" parent="Player"]
 transform = Transform3D(-0.12, 0, -1.04907e-08, 0, 0.12, 0, 1.04907e-08, 0, -0.12, 0, 0, 0.5)
@@ -832,6 +850,23 @@ libraries = {
 "": SubResource("AnimationLibrary_3xhqy")
 }
 
+[node name="groundSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("46_cjjx3")
+script = ExtResource("47_8mqp3")
+
+[node name="jumpSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("48_yr5k0")
+
+[node name="landSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("49_au65u")
+
+[node name="downSound" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("50_4px4t")
+volume_db = 8.759
+
+[node name="metalicDown" type="AudioStreamPlayer" parent="Player/JESUS"]
+stream = ExtResource("51_kxl26")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_7ggdo")]
@@ -842,5 +877,6 @@ libraries = {
 wait_time = 0.1
 one_shot = true
 
+[connection signal="finished" from="Player/JESUS/groundSound" to="Player/JESUS/groundSound" method="_on_finished"]
 [connection signal="timeout" from="Timer" to="Level" method="_on_timer_timeout"]
 [connection signal="timeout" from="ClearWay" to="Level" method="_on_timer_2_timeout"]

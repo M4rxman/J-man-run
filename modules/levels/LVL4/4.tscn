@@ -52,6 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012586, 0.199, 0)
 shape = SubResource("ConcavePolygonShape3D_org8k")
 
 [node name="Area3D" type="Area3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0137615, 0, 0.000757217)
 script = ExtResource("5_2rotw")
 
 [node name="LavaCol" type="CollisionShape3D" parent="Area3D" index="0"]

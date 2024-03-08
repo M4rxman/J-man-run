@@ -15,4 +15,3 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "Player":
 		getMainModule.level.player.deathByBarrier()
-		print("DEAD BY SWAMP")
